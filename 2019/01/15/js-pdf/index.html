@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>刘文柱的博客</title>
+  <title>Javascript 将html转成pdf,下载,支持多页哦（html2canvas 和 jsPDF） | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
-<meta name="keywords" content="刘文柱,vue,react,前端,js,jquery,javascript,html5,css3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘文柱的博客">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+  <meta name="description" content="html2canvas简介我们可以直接在浏览器端使用html2canvas,对整个或局部页面进行‘截图’。但这并不是真的截图，而是通过遍历页面DOM结构，收集所有元素信息及相应样式，渲染出canvas image。 由于html2canvas只能将它能处理的生成canvas image，因此渲染出来的结果并不是100%与原来一致。但它不需要服务器参与，整个图片都由客户端浏览器生成，使用很方便。">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 将html转成pdf,下载,支持多页哦（html2canvas 和 jsPDF）">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/js-pdf/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta property="og:description" content="html2canvas简介我们可以直接在浏览器端使用html2canvas,对整个或局部页面进行‘截图’。但这并不是真的截图，而是通过遍历页面DOM结构，收集所有元素信息及相应样式，渲染出canvas image。 由于html2canvas只能将它能处理的生成canvas image，因此渲染出来的结果并不是100%与原来一致。但它不需要服务器参与，整个图片都由客户端浏览器生成，使用很方便。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-14T02:24:37.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘文柱的博客">
-<meta name="twitter:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta name="twitter:title" content="Javascript 将html转成pdf,下载,支持多页哦（html2canvas 和 jsPDF）">
+<meta name="twitter:description" content="html2canvas简介我们可以直接在浏览器端使用html2canvas,对整个或局部页面进行‘截图’。但这并不是真的截图，而是通过遍历页面DOM结构，收集所有元素信息及相应样式，渲染出canvas image。 由于html2canvas只能将它能处理的生成canvas image，因此渲染出来的结果并不是100%与原来一致。但它不需要服务器参与，整个图片都由客户端浏览器生成，使用很方便。">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -154,275 +155,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-es6-learn-up" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-js-pdf" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/02/es6-learn-up/">30分钟掌握ES6/ES2015核心内容（上）</a>
+    <h1 class="article-title" itemprop="name">
+      Javascript 将html转成pdf,下载,支持多页哦（html2canvas 和 jsPDF）
     </h1>
   
 
         
-        <a href="/2017/09/02/es6-learn-up/" class="archive-article-date">
-  	<time datetime="2017-09-02T13:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
+        <a href="/2019/01/15/js-pdf/" class="archive-article-date">
+  	<time datetime="2019-01-15T04:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/es6-learn-up/a1.png"><br>
-        
-          <a class="article-more-a" href="/2017/09/02/es6-learn-up/#more">more >></a>
-        
+        <h2 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>我们可以直接在浏览器端使用html2canvas,对整个或局部页面进行‘截图’。但这并不是真的截图，而是通过遍历页面DOM结构，收集所有元素信息及相应样式，渲染出canvas image。</p>
+<p>由于html2canvas只能将它能处理的生成canvas image，因此渲染出来的结果并不是100%与原来一致。但它不需要服务器参与，整个图片都由客户端浏览器生成，使用很方便。</p>
+<a id="more"></a>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>使用的API也很简洁，下面代码可以将某个元素渲染成canvas：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html2canvas</span>(<span class="selector-tag">element</span>, &#123;</span><br><span class="line">    <span class="attribute">onrendered</span>: <span class="built_in">function</span>(canvas) &#123;</span><br><span class="line">        // canvas is the final rendered &lt;canvas&gt; element</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>通过onrendered方法，可以将生成的canvas进行回调，比如插入到页面中：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html2canvas</span>(<span class="selector-tag">element</span>, &#123;</span><br><span class="line">    <span class="attribute">onrendered</span>: <span class="built_in">function</span>(canvas) &#123;</span><br><span class="line">       document.body.<span class="built_in">appendChild</span>(canvas);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>做个小例子代码如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>html2canvas example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined">...</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>one<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">aside</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>it is a title<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>Stone Giant<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">     <span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./Stone.png"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Stone Giant<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Coming ... <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>以一团石头...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>write by linwalker @2017<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./html2canvas.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        html2canvas(<span class="built_in">document</span>.body, &#123;</span></span><br><span class="line"><span class="actionscript">          onrendered:<span class="function"><span class="keyword">function</span><span class="params">(canvas)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.body.appendChild(canvas)</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个例子将页面body中的元素渲染成canvas，并插入到body中</p>
+<h2 id="jsPDF"><a href="#jsPDF" class="headerlink" title="jsPDF"></a>jsPDF</h2><p>jsPDF库可以用于浏览器端生成PDF。</p>
+<h3 id="文字生成PDF"><a href="#文字生成PDF" class="headerlink" title="文字生成PDF"></a>文字生成PDF</h3><p>使用方法如下：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认a4大小，竖直方向，mm单位的PDF</span></span><br><span class="line">var <span class="meta">doc</span> = <span class="keyword">new</span> jsPDF();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加文本‘Download PDF’</span></span><br><span class="line"><span class="meta">doc</span>.text(<span class="string">'Download PDF!'</span>, <span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line"><span class="meta">doc</span>.save(<span class="string">'a4.pdf'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="图片生成PDF"><a href="#图片生成PDF" class="headerlink" title="图片生成PDF"></a>图片生成PDF</h3><p>使用方法如下：<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三个参数，第一个方向，第二个单位，第三个尺寸格式</span></span><br><span class="line">var <span class="meta">doc</span> = <span class="keyword">new</span> jsPDF(<span class="string">'landscape'</span>,<span class="string">'pt'</span>,[<span class="number">205</span>, <span class="number">115</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将图片转化为dataUrl</span></span><br><span class="line">var imageData = ‘data:image/png;base<span class="number">64</span>,iVBORw<span class="number">0</span>KGgo...’;</span><br><span class="line"></span><br><span class="line"><span class="meta">doc</span>.addImage(imageData, <span class="string">'PNG'</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">205</span>, <span class="number">115</span>);</span><br><span class="line"><span class="meta">doc</span>.save(<span class="string">'a4.pdf'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="文字与图片生成PDF"><a href="#文字与图片生成PDF" class="headerlink" title="文字与图片生成PDF"></a>文字与图片生成PDF</h3><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三个参数，第一个方向，第二个尺寸，第三个尺寸格式</span></span><br><span class="line">var <span class="meta">doc</span> = <span class="keyword">new</span> jsPDF(<span class="string">'landscape'</span>,<span class="string">'pt'</span>,[<span class="number">205</span>, <span class="number">155</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将图片转化为dataUrl</span></span><br><span class="line">var imageData = ‘data:image/png;base<span class="number">64</span>,iVBORw<span class="number">0</span>KGgo...’;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置字体大小</span></span><br><span class="line"><span class="meta">doc</span>.setFontSize(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//10,20这两参数控制文字距离左边，与上边的距离</span></span><br><span class="line"><span class="meta">doc</span>.text(<span class="string">'Stone'</span>, <span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 0, 40, 控制文字距离左边，与上边的距离</span></span><br><span class="line"><span class="meta">doc</span>.addImage(imageData, <span class="string">'PNG'</span>, <span class="number">0</span>, <span class="number">40</span>, <span class="number">205</span>, <span class="number">115</span>);</span><br><span class="line"><span class="meta">doc</span>.save(<span class="string">'a4.pdf'</span>)</span><br></pre></td></tr></table></figure>
+<p>生成pdf需要把转化的元素添加到jsPDF实例中，也有添加html的功能，但某些元素无法生成在pdf中，因此可以使用html2canvas + jsPDF的方式将页面转成pdf。通过html2canvas将遍历页面元素，并渲染生成canvas，然后将canvas图片格式添加到jsPDF实例，生成pdf。</p>
+<h2 id="html2canvas-jsPDF"><a href="#html2canvas-jsPDF" class="headerlink" title="html2canvas + jsPDF"></a>html2canvas + jsPDF</h2><h3 id="单页"><a href="#单页" class="headerlink" title="单页"></a>单页</h3><p>将demo1的例子修改下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./js/jsPdf.debug.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> downPdf = <span class="built_in">document</span>.getElementById(<span class="string">"renderPdf"</span>);</span></span><br><span class="line"><span class="actionscript">      downPdf.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">          html2canvas(<span class="built_in">document</span>.body, &#123;</span></span><br><span class="line"><span class="actionscript">              onrendered:<span class="function"><span class="keyword">function</span><span class="params">(canvas)</span> </span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">                  <span class="comment">//返回图片dataURL，参数：图片格式和清晰度(0-1)</span></span></span><br><span class="line"><span class="actionscript">                  <span class="keyword">var</span> pageData = canvas.toDataURL(<span class="string">'image/jpeg'</span>, <span class="number">1.0</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">                  <span class="comment">//方向默认竖直，尺寸ponits，格式a4[595.28,841.89]</span></span></span><br><span class="line"><span class="actionscript">                  <span class="keyword">var</span> pdf = <span class="keyword">new</span> jsPDF(<span class="string">''</span>, <span class="string">'pt'</span>, <span class="string">'a4'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">                  <span class="comment">//addImage后两个参数控制添加图片的尺寸，此处将页面高度按照a4纸宽高比列进行压缩</span></span></span><br><span class="line"><span class="actionscript">                  pdf.addImage(pageData, <span class="string">'JPEG'</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">595.28</span>, <span class="number">592.28</span>/canvas.width * canvas.height );</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">                  pdf.save(<span class="string">'stone.pdf'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">              &#125;</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果页面内容根据a4比例转化后高度超过a4纸高度呢，生成的pdf会怎么样？会分页吗？</p>
+<p>你可以试试，验证一下自己的想法</p>
+<p>jsPDF提供了一个很有用的API，addPage()，我们可以通过pdf.addPage()，来添加一页pdf，然后通过pdf.addImage(…)，将图片赋予这页pdf来显示。</p>
+<p>那么我们如何确定哪里分页？</p>
+<p>这个问题好回答，我们可以设置一个pageHeight，超过这个高度的内容放入下一页pdf。</p>
+<p>来捋一下思路，将html页面内容生成canvas图片，通过addImage将第一页图片添加到pdf中，超过一页内容，通过addPage()添加pdf页数,然后再通过addImage将下一页图片添加到pdf中。</p>
+<p>嗯～，很好！巴特，难道没有发现问题吗？</p>
+<p>这个方法实现的前提是 — — 我们能根据pageHeight先将整页内容生成的canvas图片分割成对应的小图片，然后一个萝卜一个坑，一页一页addImage进去。</p>
+<p>What? 想一想我们的canvas是肿么来的，不用拉上去，直接看下面：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html2canvas</span>(<span class="selector-tag">document</span><span class="selector-class">.body</span>, &#123;</span><br><span class="line">    <span class="attribute">onrendered</span>:<span class="built_in">function</span>(canvas) &#123;</span><br><span class="line">     //it is here we handle the canvas</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这里的body就是要生成canvas的元素对象，一个元素生成一个canvas；那么我们需要一页一页的canvas，也就是说。。。</p>
+<p>你觉得可能吗？ 我觉得不太现实，按这思路要获取页面上不同位置的DOM元素，然后通过htnl2canvas(element,option)来处理，先不说能不能刚好在每个pageHeight的位置刚好找到一个DOM元素，就算找到了，这样做累不累。</p>
+<p>累的话<br>：）可以看看下面这种方法</p>
+<h3 id="多页"><a href="#多页" class="headerlink" title="多页"></a>多页</h3><p>我提供的思路是我们只生成一个canvas，对就一个，转化元素就是你要转成pdf内容的母元素，在这篇demo里就是body了；其他不变，也是超过一页内容就addPage，然后addImage,只不过这里添加的是同一个canvas。</p>
+<p>当然这样做只会出现多页重复的pdf，那到底怎么实现正确分页显示。其实主要利用了jsPDF的两点：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 超过jsPDF实例格式尺寸的内容不显示</span><br><span class="line">（<span class="keyword">var</span> pdf = <span class="keyword">new</span> <span class="type">jsPDF</span>(<span class="string">''</span>, <span class="string">'pt'</span>, <span class="string">'a4'</span>); demo中就是a4纸的尺寸）</span><br><span class="line">- addImage有两个参数可以控制图片在pdf中的位置</span><br></pre></td></tr></table></figure>
+<p>虽然每一页pdf上显示的图片是相同的，但我们通过调整图片的位置，产生了分页的错觉。以第二页为例，将竖直方向上的偏移设置为-841.89即一张a4纸的高度，又因为超过a4纸高度范围的图片不显示，所以第二页显示了图片竖直方向上[841.89,1682.78]范围内的内容，这就得到了分页的效果，以此类推。</p>
+<p>还是看代码吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.body, &#123;</span><br><span class="line">  onrendered:<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> contentWidth = canvas.width;</span><br><span class="line">      <span class="keyword">var</span> contentHeight = canvas.height;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//一页pdf显示html页面生成的canvas高度;</span></span><br><span class="line">      <span class="keyword">var</span> pageHeight = contentWidth / <span class="number">592.28</span> * <span class="number">841.89</span>;</span><br><span class="line">      <span class="comment">//未生成pdf的html页面高度</span></span><br><span class="line">      <span class="keyword">var</span> leftHeight = contentHeight;</span><br><span class="line">      <span class="comment">//页面偏移</span></span><br><span class="line">      <span class="keyword">var</span> position = <span class="number">0</span>;</span><br><span class="line">      <span class="comment">//a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高</span></span><br><span class="line">      <span class="keyword">var</span> imgWidth = <span class="number">595.28</span>;</span><br><span class="line">      <span class="keyword">var</span> imgHeight = <span class="number">592.28</span>/contentWidth * contentHeight;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> pageData = canvas.toDataURL(<span class="string">'image/jpeg'</span>, <span class="number">1.0</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> pdf = <span class="keyword">new</span> jsPDF(<span class="string">''</span>, <span class="string">'pt'</span>, <span class="string">'a4'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)</span></span><br><span class="line">      <span class="comment">//当内容未超过pdf一页显示的范围，无需分页</span></span><br><span class="line">      <span class="keyword">if</span> (leftHeight &lt; pageHeight) &#123;</span><br><span class="line">      pdf.addImage(pageData, <span class="string">'JPEG'</span>, <span class="number">0</span>, <span class="number">0</span>, imgWidth, imgHeight );</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">while</span>(leftHeight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">              pdf.addImage(pageData, <span class="string">'JPEG'</span>, <span class="number">0</span>, position, imgWidth, imgHeight)</span><br><span class="line">              leftHeight -= pageHeight;</span><br><span class="line">              position -= <span class="number">841.89</span>;</span><br><span class="line">              <span class="comment">//避免添加空白页</span></span><br><span class="line">              <span class="keyword">if</span>(leftHeight &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                pdf.addPage();</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      pdf.save(<span class="string">'content.pdf'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="两边留边距"><a href="#两边留边距" class="headerlink" title="两边留边距"></a>两边留边距</h3><p>修改imgWidth，并且在addImage时x方向参数设置你要的边距，具体代码如下</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> imgWidth = <span class="number">555.28</span>;</span><br><span class="line"><span class="built_in">var</span> imgHeight = <span class="number">555.28</span>/contentWidth * contentHeight;</span><br><span class="line"><span class="params">...</span></span><br><span class="line">pdf.addImage(pageData, <span class="string">'JPEG'</span>, <span class="number">20</span>, <span class="number">0</span>, imgWidth, imgHeight );</span><br><span class="line"><span class="params">...</span></span><br><span class="line">pdf.addImage(pageData, <span class="string">'JPEG'</span>, <span class="number">20</span>, position, imgWidth, imgHeight);</span><br></pre></td></tr></table></figure>
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/02/es6-learn-up/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-move-pattern" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/30/move-pattern/">一些有用的HTML5 pattern属性</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/30/move-pattern/" class="archive-article-date">
-  	<time datetime="2017-08-30T15:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近在做手机页面时，遇到数字输入的键盘的问题，之前的做法只是一刀切的使用 type=”tel”，不过一直觉得九宫格的电话号码键盘上的英文字母太碍事了。于是想要尝试其它的实现方案，最终的结论却令人沮丧。不过也趁机详细了解了下pattern这个属性。<br>
-        
-          <a class="article-more-a" href="/2017/08/30/move-pattern/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">移动</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/30/move-pattern/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-move-input" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/move-input/">input属性控制弹出键盘类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/28/move-input/" class="archive-article-date">
-  	<time datetime="2017-08-28T14:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>input属性控制弹出键盘类型<br>
-        
-          <a class="article-more-a" href="/2017/08/28/move-input/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">移动</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/move-input/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js-this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/js-this/">JavaScript 的 this 指向问题深度解析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/28/js-this/" class="archive-article-date">
-  	<time datetime="2017-08-28T09:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>JavaScript 中的 this 指向问题有很多博客在解释，仍然有很多人问。上周我们的开发团队连续两个人遇到相关问题，所以我不得不将关于前端构建技术的交流会延长了半个时候讨论 this 的问题。</p>
-</blockquote>
-<p>与我们常见的很多语言不同，JavaScript 函数中的 this 指向并不是在函数定义的时候确定的，而是在调用的时候确定的。换句话说，函数的调用方式决定了 this 指向。</p>
-<p>JavaScript 中，普通的函数调用方式有三种：直接调用、方法调用和 new 调用。除此之外，还有一些特殊的调用方式，比如通过bind() 将函数绑定到对象之后再进行调用、通过 call()、apply() 进行调用等。而 es6 引入了箭头函数之后，箭头函数调用时，其 this 指向又有所不同。下面就来分析这些情况下的 this 指向。<br>
-        
-          <a class="article-more-a" href="/2017/08/28/js-this/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -442,16 +258,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/js-this/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/01/15/js-pdf/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/10/js-dom/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOM操作成本到底高在哪儿？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -466,334 +341,39 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-es6-Destructuring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/27/es6-Destructuring/">ES6：掌握解构Destructuring</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/27/es6-Destructuring/" class="archive-article-date">
-  	<time datetime="2017-08-27T15:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/es6-Destructuring/a1.jpg"><br>
-        
-          <a class="article-more-a" href="/2017/08/27/es6-Destructuring/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/27/es6-Destructuring/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#html2canvas"><span class="toc-number">1.</span> <span class="toc-text">html2canvas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.2.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsPDF"><span class="toc-number">2.</span> <span class="toc-text">jsPDF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文字生成PDF"><span class="toc-number">2.1.</span> <span class="toc-text">文字生成PDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片生成PDF"><span class="toc-number">2.2.</span> <span class="toc-text">图片生成PDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文字与图片生成PDF"><span class="toc-number">2.3.</span> <span class="toc-text">文字与图片生成PDF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html2canvas-jsPDF"><span class="toc-number">3.</span> <span class="toc-text">html2canvas + jsPDF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单页"><span class="toc-number">3.1.</span> <span class="toc-text">单页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多页"><span class="toc-number">3.2.</span> <span class="toc-text">多页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两边留边距"><span class="toc-number">3.3.</span> <span class="toc-text">两边留边距</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-es6-a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/26/es6-a/">ES6才是彻底改变了JS代码的编写方式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/26/es6-a/" class="archive-article-date">
-  	<time datetime="2017-08-26T15:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/assets/blogImg/es6-a/a1.jpg"></p>
-<blockquote>
-<p>本文为『前端之巅』原创，作者为译者为Mozilla Web、Jason Orendorff，译者为Lenville.  注明：LZ为引用<br>
-        
-          <a class="article-more-a" href="/2017/08/26/es6-a/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/26/es6-a/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-a-react" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/21/a-react/">一篇文章读懂React</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/21/a-react/" class="archive-article-date">
-  	<time datetime="2017-08-21T09:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="assets/blogImg/a-react/a1.jpg"></p>
-<blockquote>
-<p>自Facebook发布以来，React吸引了越来越多的开发者，基于它的衍生技术，如React Native、React Canvas等也层出不穷。本文从设计角度出发，一篇文章带你读懂React。<br>
-        
-          <a class="article-more-a" href="/2017/08/21/a-react/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/21/a-react/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-css-loading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/css-loading/">写一个网页进度loading</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/css-loading/" class="archive-article-date">
-  	<time datetime="2017-08-11T12:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>loading随处可见，比如一个app经常会有下拉刷新，上拉加载的功能，在刷新和加载的过程中为了让用户感知到 load 的过程，我们会使用一些过渡动画来表达。最常见的比如“转圈圈”，“省略号”等等。<br>
-        
-          <a class="article-more-a" href="/2017/08/11/css-loading/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sass</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/css-loading/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="js-pdf" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytgHBbjD"; 
+var conf = "2d599540653b37e668cd83a37b8bcfdd"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -816,8 +396,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
