@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/12 | 刘文柱的博客</title>
+  <title>H5 唤醒APP小记 | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
-<meta name="keywords" content="刘文柱,vue,react,前端,js,jquery,javascript,html5,css3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘文柱的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
+  <meta name="description" content="最近遇到一个需求，需要在从APP分享出去的H5页面中，带有一个立即打开的按钮，如果本地安装了app，那么就直接唤起本地的app，如果没有安装，则跳转到下载。这是一个很正常的推广和导流量的策略。前端小白从来没有做过这个需求，只能开始哼唧哼唧地开启自己的度娘和谷歌之旅。">
+<meta name="keywords" content="js,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5 唤醒APP小记">
+<meta property="og:url" content="http://yoursite.com/2019/01/22/js-share/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta property="og:description" content="最近遇到一个需求，需要在从APP分享出去的H5页面中，带有一个立即打开的按钮，如果本地安装了app，那么就直接唤起本地的app，如果没有安装，则跳转到下载。这是一个很正常的推广和导流量的策略。前端小白从来没有做过这个需求，只能开始哼唧哼唧地开启自己的度娘和谷歌之旅。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-01T09:22:40.408Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘文柱的博客">
-<meta name="twitter:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta name="twitter:title" content="H5 唤醒APP小记">
+<meta name="twitter:description" content="最近遇到一个需求，需要在从APP分享出去的H5页面中，带有一个立即打开的按钮，如果本地安装了app，那么就直接唤起本地的app，如果没有安装，则跳转到下载。这是一个很正常的推广和导流量的策略。前端小白从来没有做过这个需求，只能开始哼唧哼唧地开启自己的度娘和谷歌之旅。">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -154,340 +155,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js-share" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5 唤醒APP小记
+    </h1>
+  
+
+        
+        <a href="/2019/01/22/js-share/" class="archive-article-date">
+  	<time datetime="2019-01-22T15:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近遇到一个需求，需要在从APP分享出去的H5页面中，带有一个立即打开的按钮，如果本地安装了app，那么就直接唤起本地的app，如果没有安装，则跳转到下载。这是一个很正常的推广和导流量的策略。前端小白从来没有做过这个需求，只能开始哼唧哼唧地开启自己的度娘和谷歌之旅。<br><a id="more"></a></p>
+</blockquote>
+<p>经过一段时间的探索之旅发现里面的学问很多，要做一个兼容性很好的方案，就需要考虑各种情况，在不同的情况适配不同的方案，比方说用户是在手机浏览器打开还是微信中打开，或者是在pc中打开，universal腾讯应用宝直接打开 APP link是否被关闭等，这就使代码实现变得复杂，且容易出错，且还有安卓平台机型众多、浏览器众多等导致的兼容问题。由于时间有限，这次主要先介绍一个比较普遍的使用URL Scheme进行App跳转的方法。</p>
+<h2 id="URL-Scheme-——-唤端媒介"><a href="#URL-Scheme-——-唤端媒介" class="headerlink" title="URL Scheme —— 唤端媒介"></a>URL Scheme —— 唤端媒介</h2><h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>一般来说，我们使用的智能设备上有许多我们的个人信息。比如：联系方式、银行卡/信用卡信息、支付宝/Paypal/各大商城的账户密码、照片甚至行程与位置信息等。</p>
+<p>如果说，你设备上的每一个应用，不管是官方的还是你从任何商城安装的应用都可以随意地获取这些信息，那么你轻则收到骚扰信息和邮件、重则后果不堪设想。如何让这些信息不被其它应用随意使用，或者说，如何让这些信息仅在设备所有者本人知情并允许的情况下被使用，是所有智能设备与操作系统所要在乎的核心安全问题。针对这个问题，苹果使用了名为「沙盒」的机制：应用只能访问它声明可能访问的资源。一切提交到 App Store 的应用都必须遵守这个机制。</p>
+<p>在安全方面沙盒是个很好的解决办法，但是有些矫枉过正。敏感的个人信息我们不愿意透露，却不代表所有的信息我们都不想与其它应用共享。因此，我们急需要一个辅助工具来帮助我们实现应用通信， URL Schemes 就是这个工具。</p>
+<h2 id="URL-Schemes是什么"><a href="#URL-Schemes是什么" class="headerlink" title="URL Schemes是什么"></a>URL Schemes是什么</h2><blockquote>
+</blockquote>
+<p>我们拿 <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a> 来举例，scheme 自然就是 https 了，后面拼接的是传递的参数。URL Schemes 没有特别严格的规范，所以后面参数的具体定义是app开发者去自定义。</p>
+<p>就像给服务器资源分配一个 URL，以便我们去访问它一样，我们同样也可以给手机APP分配一个特殊格式的 URL，用来访问这个APP或者这个APP中的某个功能(来实现通信)。APP得有一个标识，好让我们可以定位到它，它就是 URL 的 Scheme 部分。</p>
+<p>但是，两者还有几个重要的区别：</p>
+<ul>
+<li>所有网页都一定有网址，不管是首页还是子页。但未必所有的应用都有自己的 URL Schemes，更不是每个应用的每个功能都有相应的 URL Schemes。几乎没有所有功能都有对应 URL 的应用。一个 App 是否支持 URL Schemes 要看那个 App 的作者是否在自己的作品里添加了 URL Schemes 相关的代码。</li>
+<li>一个网址只对应一个网页，但并非每个 URL Schemes 都只对应一款应用。这点是因为苹果没有对 URL Schemes 有不允许重复的硬性要求，所以曾经出现过有 App 使用支付宝的 URL Schemes 拦截支付帐号和密码的事件。</li>
+<li>一般网页的 URL 比较好预测，而URL Scheme 因为没有统一标准，所以非常难猜，通过猜来获取 应用的 URL Schemes 是不现实的。<br>前面普及了一下URL Schemes的相关知识，作为个前端开发者，就不去深究其中的原理，都交给app开发者吧。接下来开始我们的正题。首先当然是要客户端提供App的Url Schemes。</li>
+</ul>
+<h2 id="用浏览器去打开scheme"><a href="#用浏览器去打开scheme" class="headerlink" title="用浏览器去打开scheme"></a>用浏览器去打开scheme</h2><p>在浏览器中打开 scheme 就像打开一个不同的http地址一样。可以在一个 a 标签中打开。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>打开App<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"luwei://"</span> <span class="attr">id</span>=<span class="string">"open"</span>&gt;</span>打开应用<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>点击上面的H5页面中的链接将会尝试唤醒对应app，在一些浏览器中，可能会弹出一个提示框，询问用户是否允许打开应用。</p>
+<p>如果打开的 scheme 在本地没有对应的 app，则点击不会反应。</p>
+<p>当然还可以使用 JavaScript 代码打开，只需要添加相应的事件触发和处理即可。</p>
+<p>在JavaScript代码中打开连接有以下几种方式：</p>
+<ul>
+<li>新建一个隐藏的 iframe ，地址指向需要打开的url</li>
+<li>使用 window.location 或者 window.location.href 刷新当前页面</li>
+<li>新建一个隐藏的 a 标签，地址指向打开的url，并触发打开链接事件</li>
+<li>动态创建一个script脚本，在这个脚本中新建一个a标签并打开</li>
+</ul>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开url的方式</span></span><br><span class="line"><span class="keyword">var</span> urlOpen = &#123;</span><br><span class="line">  <span class="comment">// 在ios支持不好</span></span><br><span class="line">    <span class="string">'iframe'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</span><br><span class="line">        iframe.style.display = <span class="string">'none'</span>;</span><br><span class="line">        iframe.src = <span class="built_in">url</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'location'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.location.href = <span class="built_in">url</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'href'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">        a.style.display = <span class="string">'none'</span>;</span><br><span class="line">        a.href = <span class="built_in">url</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(a);</span><br><span class="line">        a.click();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'script'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">        script.setAttribute(<span class="string">'type'</span>, <span class="string">'test/javascript'</span>);</span><br><span class="line">        script.innerHTML = <span class="string">'(function()&#123;'</span> +</span><br><span class="line">            <span class="string">'var a = document.createElement("a");'</span> +</span><br><span class="line">            <span class="string">'a.style.display = "none";'</span> +</span><br><span class="line">            <span class="string">'a.href = "'</span> + <span class="built_in">url</span>.replace(<span class="regexp">/"/g</span>, <span class="string">'\\"'</span>) + <span class="string">'";'</span> +</span><br><span class="line">            <span class="string">'document.body.appendChild(a);'</span> +</span><br><span class="line">            <span class="string">'a.click();'</span> +</span><br><span class="line">            <span class="string">'&#125;)()'</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'open'</span> : <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.open(<span class="built_in">url</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>以上方法是只是解决了在已安装App设备唤醒App的功能，并不能判断是否已安装App，没有安装即跳转至下载链接。</p>
+<h2 id="浏览器判断是否安装应用"><a href="#浏览器判断是否安装应用" class="headerlink" title="浏览器判断是否安装应用"></a>浏览器判断是否安装应用</h2><p>在浏览器实际上是没有能力判断手机里是否安装了某个App的，所以只能够采取一种投机取巧的方式。</p>
+<p>在JavaScript中判断页面是否进入后台来判断打开成功。Html5提供了下列事件和属性可以利用：</p>
+<ul>
+<li>pagehide : 页面隐藏时触发</li>
+<li>visibilitychange : 页面隐藏没有在当前显示时触发(切换tab也会触发该事件)</li>
+<li>document.hidden ： 当页面隐藏时，该值为true，显示时为false</li>
+<li>上面这些事件或者属性并不是所有浏览器都支持。下面是一个给出为id为openBtn 的按钮添加打开scheme或者下载事件的例子，但对于Android 4.4版本以下则不支持<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> downloader, </span><br><span class="line">    scheme = <span class="string">'luwei://'</span>,  <span class="comment">// 需要打开的app scheme 地址</span></span><br><span class="line">    iosDownload=<span class="string">'http://xxx.com'</span>;  <span class="comment">// 如果打开scheme失效的app下载地址</span></span><br><span class="line">    andDownload = <span class="string">'http://xxx.com'</span>;</span><br><span class="line">    <span class="keyword">var</span> u = navigator.userAgent;</span><br><span class="line">    <span class="keyword">var</span> isAndroid = u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Linux'</span>) &gt; <span class="number">-1</span>; <span class="comment">//g</span></span><br><span class="line">    <span class="keyword">var</span> isIOS = !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>); <span class="comment">//ios终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给 id 为 openBtn 的按钮添加点击事件处理函数</span></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'openBtn'</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.location.href = scheme;  <span class="comment">// 尝试打开 scheme </span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 设置3秒的定时下载任务，3秒之后下载app</span></span><br><span class="line">        downloader = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(isAndroid) &#123;</span><br><span class="line">                <span class="built_in">window</span>.location.href = andDownload;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(isIOS) &#123;</span><br><span class="line">                <span class="built_in">window</span>.location.href = iosDownload;</span><br><span class="line">            &#125;</span><br><span class="line">          </span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'visibilitychange webkitvisibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果页面隐藏，推测打开scheme成功，清除下载任务</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.hidden || <span class="built_in">document</span>.webkitHidden) &#123;</span><br><span class="line">            clearTimeout(downloader);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'pagehide'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(downloader);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="没有完美的方案"><a href="#没有完美的方案" class="headerlink" title="没有完美的方案"></a>没有完美的方案</h2><ul>
+<li>微信中无法唤醒App，需要“用浏览器打开”是因为微信对所有的分享链接接做了scheme屏蔽，也就是说分享连接中所有对于scheme的调用都被微信封掉了。有些app是能在微信打开是因为微信有一个白名单(有关系就是不错)，对于在白名单中的分享链接是不会屏蔽掉scheme调用的。</li>
+<li>本文只是小小地抛个砖，介绍了一种比较常用简单的方法去唤醒app，该方案兼容性不是特别好吧。要做出一个比较完美的方案还需要细细去钻研，还需要不停地去搬砖~不说了，搬砖去了~</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/29/js-pd/" class="archive-article-date">
-  	<time datetime="2017-12-29T03:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/29/js-pd/">精心收集的 48 个 JavaScript 代码片段，仅需 30 秒就可理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/27/web-speech/" class="archive-article-date">
-  	<time datetime="2017-12-27T04:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/27/web-speech/">网页中文本朗读功能开发实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/24/js-is/" class="archive-article-date">
-  	<time datetime="2017-12-24T14:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/24/js-is/">常见的 JavaScript 内存泄露</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/book-all/" class="archive-article-date">
-  	<time datetime="2017-12-20T15:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/book-all/">程序员需要的各种PDF格式电子书【附网盘免费下载资源地址】</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Book</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/js-void/" class="archive-article-date">
-  	<time datetime="2017-12-15T14:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/js-void/">谈谈Javascript中的void操作符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/12/css-bfc/" class="archive-article-date">
-  	<time datetime="2017-12-12T15:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/12/css-bfc/">CSS: 潜藏着的BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/09/css-overflow/" class="archive-article-date">
-  	<time datetime="2017-12-09T15:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/09/css-overflow/">灵活的 overflow</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/08/js-6-frame/" class="archive-article-date">
-  	<time datetime="2017-12-08T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/08/js-6-frame/">6 大主流 Web 框架优缺点对比</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/06/js-outils/" class="archive-article-date">
-  	<time datetime="2017-12-06T03:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/06/js-outils/">打造自己的 JavaScript 武器库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -497,25 +262,132 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">工具库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/01/22/js-share/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/01/15/js-pdf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript 将html转成pdf,下载,支持多页哦（html2canvas 和 jsPDF）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#URL-Scheme-——-唤端媒介"><span class="toc-number">1.</span> <span class="toc-text">URL Scheme —— 唤端媒介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#来源"><span class="toc-number">1.1.</span> <span class="toc-text">来源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL-Schemes是什么"><span class="toc-number">2.</span> <span class="toc-text">URL Schemes是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用浏览器去打开scheme"><span class="toc-number">3.</span> <span class="toc-text">用浏览器去打开scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器判断是否安装应用"><span class="toc-number">4.</span> <span class="toc-text">浏览器判断是否安装应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有完美的方案"><span class="toc-number">5.</span> <span class="toc-text">没有完美的方案</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="js-share" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytgHBbjD"; 
+var conf = "2d599540653b37e668cd83a37b8bcfdd"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+  
 
 
           </div>
@@ -538,8 +410,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
