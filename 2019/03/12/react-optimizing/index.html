@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>一些有用的HTML5 pattern属性 | 刘文柱的博客</title>
+  <title>可能你的react函数组件从来没有优化过 | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在做手机页面时，遇到数字输入的键盘的问题，之前的做法只是一刀切的使用 type=”tel”，不过一直觉得九宫格的电话号码键盘上的英文字母太碍事了。于是想要尝试其它的实现方案，最终的结论却令人沮丧。不过也趁机详细了解了下pattern这个属性。">
-<meta name="keywords" content="html5,移动">
+  <meta name="description" content="16.6之前，函数组件没有像 shouldComponentUpdate这样的方法，也没有类似 PureComponent这种解决方案，避免不了函数组件里面所有的代码再次的执行，要依靠外面的条件渲染来控制，或者是高阶组件。之前的话，选择使用函数组件的情况是一些比较简单的又比较纯的组件，只是负责展示的。而且函数组件最终编译babel结果是只执行 createElement那一步；class组件一样">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些有用的HTML5 pattern属性">
-<meta property="og:url" content="http://yoursite.com/2017/08/30/move-pattern/index.html">
+<meta property="og:title" content="可能你的react函数组件从来没有优化过">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/react-optimizing/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="最近在做手机页面时，遇到数字输入的键盘的问题，之前的做法只是一刀切的使用 type=”tel”，不过一直觉得九宫格的电话号码键盘上的英文字母太碍事了。于是想要尝试其它的实现方案，最终的结论却令人沮丧。不过也趁机详细了解了下pattern这个属性。">
+<meta property="og:description" content="16.6之前，函数组件没有像 shouldComponentUpdate这样的方法，也没有类似 PureComponent这种解决方案，避免不了函数组件里面所有的代码再次的执行，要依靠外面的条件渲染来控制，或者是高阶组件。之前的话，选择使用函数组件的情况是一些比较简单的又比较纯的组件，只是负责展示的。而且函数组件最终编译babel结果是只执行 createElement那一步；class组件一样">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/move-pattern/a1.jpg">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/move-pattern/a2.jpg">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/move-pattern/a3.jpg">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/move-pattern/a4.jpg">
-<meta property="og:image" content="http://yoursite.com/assets/blogImg/move-pattern/a5.jpg">
-<meta property="og:updated_time" content="2018-04-10T06:57:40.873Z">
+<meta property="og:updated_time" content="2019-07-16T07:35:33.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一些有用的HTML5 pattern属性">
-<meta name="twitter:description" content="最近在做手机页面时，遇到数字输入的键盘的问题，之前的做法只是一刀切的使用 type=”tel”，不过一直觉得九宫格的电话号码键盘上的英文字母太碍事了。于是想要尝试其它的实现方案，最终的结论却令人沮丧。不过也趁机详细了解了下pattern这个属性。">
-<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/move-pattern/a1.jpg">
+<meta name="twitter:title" content="可能你的react函数组件从来没有优化过">
+<meta name="twitter:description" content="16.6之前，函数组件没有像 shouldComponentUpdate这样的方法，也没有类似 PureComponent这种解决方案，避免不了函数组件里面所有的代码再次的执行，要依靠外面的条件渲染来控制，或者是高阶组件。之前的话，选择使用函数组件的情况是一些比较简单的又比较纯的组件，只是负责展示的。而且函数组件最终编译babel结果是只执行 createElement那一步；class组件一样">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -161,20 +155,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-move-pattern" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react-optimizing" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      一些有用的HTML5 pattern属性
+      可能你的react函数组件从来没有优化过
     </h1>
   
 
         
-        <a href="/2017/08/30/move-pattern/" class="archive-article-date">
-  	<time datetime="2017-08-30T15:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
+        <a href="/2019/03/12/react-optimizing/" class="archive-article-date">
+  	<time datetime="2019-03-12T11:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
 </a>
         
       </header>
@@ -182,69 +176,45 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>最近在做手机页面时，遇到数字输入的键盘的问题，之前的做法只是一刀切的使用 type=”tel”，不过一直觉得九宫格的电话号码键盘上的英文字母太碍事了。于是想要尝试其它的实现方案，最终的结论却令人沮丧。不过也趁机详细了解了下pattern这个属性。<br><a id="more"></a></p>
+<p>16.6之前，函数组件没有像 shouldComponentUpdate这样的方法，也没有类似 PureComponent这种解决方案，避免不了函数组件里面所有的代码再次的执行，要依靠外面的条件渲染来控制，或者是高阶组件。之前的话，选择使用函数组件的情况是一些比较简单的又比较纯的组件，只是负责展示的。而且函数组件最终编译babel结果是只执行 createElement那一步；class组件一样有生命周期要实例化，最终经过Babel成es5代码的时候还很长</p>
 </blockquote>
-<h3 id="type-quot-tel-quot-和-type-quot-number-quot-的区别"><a href="#type-quot-tel-quot-和-type-quot-number-quot-的区别" class="headerlink" title="type=&quot;tel&quot; 和 type=&quot;number&quot; 的区别"></a><code>type=&quot;tel&quot;</code> 和 <code>type=&quot;number&quot;</code> 的区别</h3><p>这里还是先那么先交代一下最初遇到的问题。其实无论是tel还是number都不是完美的：</p>
-<p><code>type=&quot;tel&quot;</code></p>
-<ul>
-<li><p>优点是iOS和Android的键盘表现都差不多</p>
-</li>
-<li><p>缺点是那些字母好多余，虽然我没有强迫症但还是感觉怪怪的啊。     </p>
-</li>
-</ul>
-<p><img src="/assets/blogImg/move-pattern/a1.jpg"></p>
-<h3 id="type-quot-number-quot"><a href="#type-quot-number-quot" class="headerlink" title="type=&quot;number&quot;"></a><code>type=&quot;number&quot;</code></h3><ul>
-<li><p>优点是Android下实现的一个真正的数字键盘</p>
-</li>
-<li><p>缺点一：iOS下不是九宫格键盘，输入不方便</p>
-</li>
-<li><p>缺点二：旧版Android（包括微信所用的X5内核）在输入框后面会有超级鸡肋的小尾巴，好在Android 4.4.4以后给去掉了。</p>
-</li>
-</ul>
-<p><img src="/assets/blogImg/move-pattern/a2.jpg"><br><img src="/assets/blogImg/move-pattern/a3.jpg"></p>
-<p>不过对于缺点二，我们可以用webkit私有的伪元素给fix掉：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">input[type=number]<span class="symbol">:</span><span class="symbol">:-webkit-inner-spin-button</span>,  </span><br><span class="line">    input[type=number]<span class="symbol">:</span><span class="symbol">:-webkit-outer-spin-button</span> &#123; </span><br><span class="line">        -webkit-<span class="symbol">appearance:</span> none; </span><br><span class="line">        <span class="symbol">appearance:</span> none; </span><br><span class="line">        <span class="symbol">margin:</span> <span class="number">0</span>; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="pattern属性"><a href="#pattern属性" class="headerlink" title="pattern属性"></a>pattern属性</h3><p>pattern用于验证表单输入的内容，通常HTML5的type属性，比如email、tel、number、data类、url等，已经自带了简单的数据格式验证功能了，加上pattern后，前端部分的验证更加简单高效了。</p>
-<p>显而易见，pattern的属性值要用正则表达式。</p>
-<p>实例</p>
-<p>简单的数字验证</p>
-<p>数字的验证有两个：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">"number"</span> <span class="attribute">pattern</span>=<span class="string">"\d"</span>&gt;  </span><br><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">"number"</span> <span class="attribute">pattern</span>=<span class="string">"[0-9]*"</span>&gt;&lt;/input <span class="attribute">type</span>=<span class="string">"number"</span> <span class="attribute">pattern</span>=<span class="string">"[0-9]*"</span>&gt;&lt;/input <span class="attribute">type</span>=<span class="string">"number"</span> <span class="attribute">pattern</span>=<span class="string">"\d"</span>&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/blogImg/move-pattern/a4.jpg"></p>
-<p>对表单验证来说，这两个正则的作用是一样的，表现的话差异就很大：</p>
-<ul>
-<li><p>iOS中，只有[0-9]*才可以调起九宫格数字键盘，\d 无效</p>
-</li>
-<li><p>Android 4.4以下(包括X5内核)，两者都调起数字键盘；</p>
-</li>
-<li><p>Android 4.4.4以上，只认 type 属性，也就是说，如果上面的代码将 type=”number” 改为 type=”text” ，将调起全键盘而不会是九宫格数字键盘。</p>
-</li>
-</ul>
-<h4 id="常用的正则表达式"><a href="#常用的正则表达式" class="headerlink" title="常用的正则表达式"></a>常用的正则表达式</h4><p>pattern的用法都一样，这里不再啰嗦各种详细写法了，只是列出来一些常用的正则就好了：</p>
-<ul>
-<li><p>信用卡  [0-9]{13,16}</p>
-</li>
-<li><p>银联卡  ^62[0-5]\d{13,16}$</p>
-</li>
-<li><p>Visa: ^4[0-9]{12}(?:[0-9]{3})?$</p>
-</li>
-<li><p>万事达：^5[1-5][0-9]{14}$</p>
-</li>
-<li><p>QQ号码： [1-9][0-9]{4,14}</p>
-</li>
-<li><p>手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</p>
-</li>
-<li><p>身份证：^([0-9]){7,18}(x|X)?$</p>
-</li>
-<li><p>密码：^[a-zA-Z]\w{5,17}$ 字母开头，长度在6~18之间，只能包含字母、数字和下划线</p>
-</li>
-<li><p>强密码：^(?=.<em>\d)(?=.</em>[a-z])(?=.*[A-Z]).{8,10}$ 包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间</p>
-</li>
-<li><p>7个汉字或14个字符：^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,14}$</p>
-</li>
-</ul>
-<h3 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h3><p>很不幸，pattern的浏览器支持很惨：</p>
-<p><img src="/assets/blogImg/move-pattern/a5.jpg"></p>
+<a id="more"></a>
+<h2 id="React-memo"><a href="#React-memo" class="headerlink" title="React.memo"></a>React.memo</h2><p>当16.6的memo问世，函数组件就有了类似 PureComponent和 shouldComponentUpdate的解决方案，memo的使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> C = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">section</span>&gt;</span>&#123;props.name&#125;你太美<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.memo(C)</span><br></pre></td></tr></table></figure>
+<p>当父组件执行render的时候，避免不了C组件的渲染和C函数的执行（如果不在外面加判断的话：{isShowC&amp;&amp;<c>}）。当到了C组件的时候，会浅比较C组件前后props值。如果props每一个属性值都一样，会跳过函数组件C的执行，减少了不必要的渲染，达到了性能优化。</c></p>
+<h2 id="memo第二个参数"><a href="#memo第二个参数" class="headerlink" title="memo第二个参数"></a>memo第二个参数</h2><p>第二个参数，是一个函数，该函数传入参数是新props和上次props，我们可以在函数里面做判断逻辑，控制返回值。当我们让函数return true的时候，告诉了react这两个props是一样的，不用重新执行整个函数组件；反之false的时候会重新执行该组件</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memo(IfEqual, <span class="function"><span class="params">()</span> =&gt;</span> <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>比如这行代码，判断函数一直返回false， memo包住的 IfEqual组件无论怎样都会重新执行</p>
+<p>当我们用上了memo，就可以根据业务来进行优化了：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">React.memo(C, <span class="function"><span class="params">(nextProps, prevProps)</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="regexp">//</span> 做我们想做的事情，类似shouldComponentUpdate</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数组件中传入的props值为函数时"><a href="#函数组件中传入的props值为函数时" class="headerlink" title="函数组件中传入的props值为函数时"></a>函数组件中传入的props值为函数时</h2><p>我们都知道，js中函数不是简单数据类型，也就是说 function(){}和 function(){}是不一样的，与 {}和 {}不一样同理。那么我们传入 props.onClick（即使是长得一样的内容完全一样），前后 props.onClick都不能划上等号</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">IfEqual</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;&#125;&#125; /&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>觉得inline function不好看，那前面定义一下，实际上还是逃不了同一个事情：它们是不一样的。这次是因为，函数组件的渲染，也就是执行，每一次重新执行，函数作用域里面一切都是重新开始。这就相当于上一次组件渲染 consthandleClick=()=&gt;{}，后面渲染又一次 consthandleClick=()=&gt;{},它们都不是同一个东西</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;   </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;IfEqual onClick=&#123;handleClick&#125; /&gt;   </span><br><span class="line">    &lt;<span class="regexp">/div&gt;  </span></span><br><span class="line"><span class="regexp">)&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这种情况下，我们可以用memo第二个参数来拯救多余一次的渲染的局面：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span> props: &#123; a: <span class="number">1</span>, onClick: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125; &#125;</span><br><span class="line"><span class="regexp">//</span> 在我们知道onClick是做同一个事情的函数的前提下，不比较onClick</span><br><span class="line">React.memo(C, <span class="function"><span class="params">(nextProps, prevProps)</span> =&gt;</span> nextProps.a === prevProps.a)</span><br></pre></td></tr></table></figure>
+<p>最后，前后props的 onClick，它们只有一种情况是一样的——把声明抽到组件外面去<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125; </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (    </span><br><span class="line">  	&lt;div&gt;      </span><br><span class="line">  		&lt;IfEqual onClick=&#123;handleClick&#125; /&gt;    </span><br><span class="line">  	&lt;<span class="regexp">/div&gt;  </span></span><br><span class="line"><span class="regexp">)&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>这时候，有没有想起class组件里面总是 onClick={this.handleClick}呢？this.handleClick一直都是同一个函数。这种情况，子组件为函数组件的时候，包一层memo就可以实现purecomponent的效果</p>
+<h2 id="useCallback"><a href="#useCallback" class="headerlink" title="useCallback"></a>useCallback</h2><p>函数组件把函数定义写在外面，是可以解决问题。但是，如果handleClick依赖组件内部的一些变量，那handleClick又不得不写在里面（当然利用引用类型可以解决）。或者还是正常写，靠memo第二个参数来控制要不要重新渲染子函数组件。但是无论怎样，都存在一个问题，就是那一块代码写在里面呢，都无法避免代码的执行和函数的重新定义，比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;    </span><br><span class="line">	<span class="keyword">const</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;        </span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>)        </span><br><span class="line">	<span class="comment">// 很多很多代码    </span></span><br><span class="line">&#125;&#125;</span><br><span class="line">a()</span><br><span class="line">a() <span class="comment">// 函数b又被定义了一次</span></span><br></pre></td></tr></table></figure>
+<p>如果我们通过依赖来确定前后两次是不是同一个函数，我们可以用函数记忆来实现整个功能<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 半伪代码</span></span><br><span class="line"><span class="keyword">let</span> prevlet prevDepsfunction memorize(fn, deps) &#123;</span><br><span class="line">	<span class="comment">// 前后依赖一致，不用重新计算直接返回上次结果</span></span><br><span class="line">	<span class="keyword">if</span>(prev &amp;&amp; isEqual(deps, prevDeps)) &#123;</span><br><span class="line">		<span class="keyword">return</span> prev</span><br><span class="line">	&#125;</span><br><span class="line">	prevDeps = depsprev = fnreturn fn</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> b = memorize(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">		<span class="comment">// 很多很多代码</span></span><br><span class="line">	&#125;, [])</span><br><span class="line">&#125;</span><br><span class="line">a() a() <span class="comment">// 函数b是同一个</span></span><br></pre></td></tr></table></figure></p>
+<p>类似函数记忆的原理，后来有了 useCallback的出现，多了一种新的解决方案，根据依赖生成一个函数：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const handleClick = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(dep)</span><br><span class="line">&#125;, [dep])</span><br></pre></td></tr></table></figure>
+<p>当dep不变，每一次函数组件的执行，handleClick都是同一个函数。如果dep变了，那么handleClick又是一个新的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>() =&gt; &#123;</span><br><span class="line">	<span class="comment">// 没有依赖，永远是同一个函数</span></span><br><span class="line">	<span class="keyword">const</span> handleClick = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;, []);</span><br><span class="line">	<span class="comment">// 依赖a，重新执行函数组件，a不变的，是同一个函数// a变了handleClick是新的函数</span></span><br><span class="line">	<span class="keyword">const</span> handleClick1 = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;, [a]);</span><br><span class="line">	<span class="keyword">return</span>(<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>      <span class="tag">&lt;<span class="name">IfEqual</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span> /&gt;</span>    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>)</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>react组件也是一个函数，那其实 useCallback还可以做一个函数组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>() =&gt; &#123;</span><br><span class="line">	<span class="keyword">const</span> handleClick = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;, []);</span><br><span class="line">	<span class="keyword">const</span> Cpn = useCallback((&#123;</span><br><span class="line">		name</span><br><span class="line">	&#125;) =&gt; &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">	&#125;, [handleClick]);</span><br><span class="line">	<span class="keyword">return</span>(<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>      <span class="tag">&lt;<span class="name">Cpn</span> <span class="attr">name</span>=<span class="string">"hi"</span> /&gt;</span>    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>)</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>当然这只是一个简单的场景，如果用了hooks，还没有解决问题或者暂时没有想到优雅的封装技巧，想用高阶组件的时候，不妨尝试一下 useCallback</p>
+<h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const a = useMemo(<span class="function"><span class="params">()</span> =&gt;</span> memorizeValue, deps)</span><br></pre></td></tr></table></figure>
+<p>当deps不变，a的值还是上次的memorizeValue，省去了重新计算的过程。如果memorizeValue是一个函数，和useCallback是一样的效果：</p>
+<blockquote>
+<p>useCallback(fn, inputs) &lt;=&gt; useMemo(() =&gt; fn, inputs)</p>
+</blockquote>
+<p>我们可以试一下同步执行的代码，当时间非常长的时候，useMemo可以发挥它的作用了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 强行更新组件</span></span><br><span class="line"><span class="keyword">const</span> useForceUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> forceUpdate = useState(<span class="number">0</span>)[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">return</span><span class="function"><span class="params">()</span> =&gt;</span> forceUpdate(<span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一个很耗时间的代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">slowlyAdd</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.time(<span class="string">'add slowly'</span>) <span class="keyword">let</span> res = n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">2000000000</span>; i++) &#123;</span><br><span class="line">		res += <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.timeEnd(<span class="string">'add slowly'</span>) <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// useMemo记忆结果的一个自定义hook</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useSlowlyAdd</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> res = useMemo(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> slowlyAdd(n);</span><br><span class="line">	&#125;, [n]) <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>() =&gt; &#123;</span><br><span class="line">	<span class="keyword">const</span> [count, add] = useState(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">const</span> forceUpdate = useForceUpdate();</span><br><span class="line">	<span class="keyword">const</span> handleClick = useCallback(<span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;, []);</span><br><span class="line">	useSlowlyAdd(count)</span><br><span class="line">	<span class="comment">// 第一次这里会耗很多时间，页面卡死一阵  </span></span><br><span class="line">	<span class="keyword">return</span>( <span class="xml"><span class="tag">&lt; &gt;</span> <span class="tag">&lt; <span class="attr">button</span> <span class="attr">onClick</span> = <span class="string">&#123;</span></span></span></span><br><span class="line"><span class="xml">			forceUpdate</span></span><br><span class="line"><span class="xml">		&#125; &gt; 更新页面 <span class="tag">&lt; /<span class="attr">button</span>&gt;</span></span>      &lt;button onClick=&#123;() =&gt; add(count + <span class="number">1</span>)&#125;&gt;+<span class="xml"><span class="tag">&lt;/<span class="name">button</span> &gt;</span> <span class="tag">&lt; /&gt;</span>  )</span></span><br><span class="line"><span class="xml">	&#125;</span></span><br></pre></td></tr></table></figure>
+<p>第一次进来，页面暂时没有任何反应一阵，这是因为slowlyAdd占用了js主线程。当我们点击‘更新页面’更新的时候，页面并没有卡死，而且组件也重新渲染执行了一次。当我们点击+，页面又开始卡死一阵。</p>
+<p>这是因为点击+的时候，修改了useMemo的依赖n，n变了重新计算，计算耗费时间。如果点击更新页面，没有修改到依赖n，不会重新计算，页面也不会卡</p>
+<p>当然，useMemo也可以做高阶组件，用起来的时候，可以写成reactElement的形式了：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const HOC = useMemo(<span class="function"><span class="params">()</span> =&gt;</span> &lt;C /&gt;, deps)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -284,11 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">移动</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -344,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/30/move-pattern/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/03/12/react-optimizing/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/02/es6-learn-up/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          30分钟掌握ES6/ES2015核心内容（上）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/28/move-input/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">input属性控制弹出键盘类型</div>
+    <a href="/2019/03/04/util-regexp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2019年JS正则大全(常用)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,7 +353,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#type-quot-tel-quot-和-type-quot-number-quot-的区别"><span class="toc-number">1.</span> <span class="toc-text">type=&quot;tel&quot; 和 type=&quot;number&quot; 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type-quot-number-quot"><span class="toc-number">2.</span> <span class="toc-text">type=&quot;number&quot;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pattern属性"><span class="toc-number">3.</span> <span class="toc-text">pattern属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用的正则表达式"><span class="toc-number">3.1.</span> <span class="toc-text">常用的正则表达式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器支持"><span class="toc-number">4.</span> <span class="toc-text">浏览器支持</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#React-memo"><span class="toc-number">1.</span> <span class="toc-text">React.memo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memo第二个参数"><span class="toc-number">2.</span> <span class="toc-text">memo第二个参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数组件中传入的props值为函数时"><span class="toc-number">3.</span> <span class="toc-text">函数组件中传入的props值为函数时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useCallback"><span class="toc-number">4.</span> <span class="toc-text">useCallback</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useMemo"><span class="toc-number">5.</span> <span class="toc-text">useMemo</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -412,7 +369,7 @@
   
 
   
-  <div id="SOHUCS" sid="move-pattern" ></div> 
+  <div id="SOHUCS" sid="react-optimizing" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytgHBbjD"; 
