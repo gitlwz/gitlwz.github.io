@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>input属性控制弹出键盘类型 | 刘文柱的博客</title>
+  <title>如何利用 Chrome 浏览器实现滚动截屏 | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="input属性控制弹出键盘类型">
-<meta name="keywords" content="html5,移动">
+  <meta name="description" content="​​作为前端工程师，有时需要将做到一半的网页发送给 PM 和 Designer 来获得他们的反馈。Mac 自带的截屏功能只能截取显示在屏幕上的内容，但是网页长度常常会超出屏幕高度，只依靠这个截图软件无法实现一次性的截取整个网页。">
+<meta name="keywords" content="chrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="input属性控制弹出键盘类型">
-<meta property="og:url" content="http://yoursite.com/2017/08/28/move-input/index.html">
+<meta property="og:title" content="如何利用 Chrome 浏览器实现滚动截屏">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/chrome-utils/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="input属性控制弹出键盘类型">
+<meta property="og:description" content="​​作为前端工程师，有时需要将做到一半的网页发送给 PM 和 Designer 来获得他们的反馈。Mac 自带的截屏功能只能截取显示在屏幕上的内容，但是网页长度常常会超出屏幕高度，只依靠这个截图软件无法实现一次性的截取整个网页。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T06:57:40.872Z">
+<meta property="og:image" content="https://wx2.sinaimg.cn/large/769721f9ly1fri4hd6gocg20zk0rs1l4.gif">
+<meta property="og:updated_time" content="2018-08-01T05:10:41.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="input属性控制弹出键盘类型">
-<meta name="twitter:description" content="input属性控制弹出键盘类型">
+<meta name="twitter:title" content="如何利用 Chrome 浏览器实现滚动截屏">
+<meta name="twitter:description" content="​​作为前端工程师，有时需要将做到一半的网页发送给 PM 和 Designer 来获得他们的反馈。Mac 自带的截屏功能只能截取显示在屏幕上的内容，但是网页长度常常会超出屏幕高度，只依靠这个截图软件无法实现一次性的截取整个网页。">
+<meta name="twitter:image" content="https://wx2.sinaimg.cn/large/769721f9ly1fri4hd6gocg20zk0rs1l4.gif">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -155,49 +157,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-move-input" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-chrome-utils" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      input属性控制弹出键盘类型
+      如何利用 Chrome 浏览器实现滚动截屏
     </h1>
   
 
         
-        <a href="/2017/08/28/move-input/" class="archive-article-date">
-  	<time datetime="2017-08-28T14:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
+        <a href="/2018/07/22/chrome-utils/" class="archive-article-date">
+  	<time datetime="2018-07-22T15:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>input属性控制弹出键盘类型<br><a id="more"></a></p>
-<pre><code>/**
- * ios弹起数字键盘有三种方法
- * 1. &lt;input type=&quot;number&quot;&gt; 可以弹起带有小数点的键盘，可以键盘不干净，有其它各种字符，可切换输入法
- * 2. &lt;input type=&quot;tel&quot;&gt; 可以弹起纯数字键盘，加#*特殊字符，不可以切换输入法，但没有小数点
- * 3. &lt;input type=&quot;text&quot; pattern=&quot;\d*&quot;&gt; 可以弹起只有数字的键盘，不可切换输入法，没有小数点
- *
- * android 与ios不一样的是：
- * 1. tel类型有小数点
- * 2. 不支持pattern
- */
+        <blockquote>
+<p>​​作为前端工程师，有时需要将做到一半的网页发送给 PM 和 Designer 来获得他们的反馈。Mac 自带的截屏功能只能截取显示在屏幕上的内容，但是网页长度常常会超出屏幕高度，只依靠这个截图软件无法实现一次性的截取整个网页。</p>
+</blockquote>
+<a id="more"></a>
+<p>对这个问题，最简单粗暴的方法是手动滑动页面来截取多个图片，根据图片顺序命名文件。但是这样作的话 PM 和 Designer 需要一张张打开，而且他们看到的也不是一个整体的效果。所以，这样做只是间接的把问题推给了别人，而并没有从根本上解决它。一个合格的工程师，应该探索下更好的解决方案。</p>
+<p>在遇到这类问题时，我的思路是依次探索：原生解决方案 &gt; 对现有工具进行组合 &gt; 安装浏览器插件或 App。</p>
+<p>由于原生的 Mac 截屏功能无法解决问题，我试着对现有工具组合：用 photoshop 将多张截图拼接到一起后再发送。但是的缺点是很耗时间，尤其时页面还是半成品的情况下，常常需要反复改动，比如下图是 PM 的反馈。改动后，又需要重新使用 photoshop 拼接一次，这不仅低效，而且是在做重复性的工作。软件工程师都不喜欢重复性的工作：</p>
+<p>由于方案二耗时太多，我便开始考虑方案三，安装浏览器插件或 App。简单搜索后，发现这类产品非常多，选择成本很高。</p>
+<p>于是，便回到继续探索原生解决方案的思路上。这时，发现 Chrome 浏览器在近期发布的版本中添加了截图的功能。下面以获取 LinkedIn 整个首页为例来介绍下具体的操作方法：</p>
+<h2 id="利用-Chrome-浏览器的开发者工具截取整个页面​"><a href="#利用-Chrome-浏览器的开发者工具截取整个页面​" class="headerlink" title="利用 Chrome 浏览器的开发者工具截取整个页面​"></a>利用 Chrome 浏览器的开发者工具截取整个页面​</h2><ol>
+<li>打开 Chrome 浏览器，进入需要截图的网站页面</li>
+<li>等待页面加载完毕后，通过下面方法打开开发者工具：在页面任何地方点击鼠标右键，在弹出菜单中选择“检查（Inspect）”选项。或者使用快捷键组合：<code>Alt</code> + <code>Command</code> + <code>I</code> (Mac) 或 <code>Ctrl</code> + <code>Shift</code> + <code>I</code> (Windows)</li>
+<li>使用快捷键组合来打开命令行（command palette）：<code>Command</code> + <code>Shift</code> + <code>P</code> (Mac) 或 <code>Ctrl</code> + <code>Shift</code> + <code>P</code> (Windows)</li>
+<li>在命令行中输入“Screen”，这时自动补齐功能会显示出一些包含 “Screen” 关键字的命令。移动方向键到“Capture full size screenshot”并回车（或直接用鼠标点击这个选项）​</li>
+</ol>
+<h3 id="动图演示操作步骤"><a href="#动图演示操作步骤" class="headerlink" title="动图演示操作步骤"></a>动图演示操作步骤</h3><p><img src="https://wx2.sinaimg.cn/large/769721f9ly1fri4hd6gocg20zk0rs1l4.gif"></p>
 
- /**
- * 控制键盘升降
- * ios8 可以使用&lt;input autofocus&gt;，在无用户操作的情况下自动升起键盘，安卓系统只是focus光标，不会弹起键盘
- * 当用户有点击操作，就可以通过调用focus方法，使键盘弹起
- * 降下键盘则需要调用blur并且focus到另外一个a标签
- *
- * 此外一个比较奇怪的点在 click事件 =》比如页面乱滚，键盘不降等
- * 估计系统触发click事件之前做了好多好多事，所以在touchend里preventDefault并模拟tap就好了
- *
- */
-</code></pre>
       
 
       
@@ -236,11 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">移动</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chrome</a>
         		</li>
       		
 		</ul>
@@ -296,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/28/move-input/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/07/22/chrome-utils/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +302,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/30/move-pattern/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/28/interview-all/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          一些有用的HTML5 pattern属性
+          2018 浅谈前端面试那些事
         
       </div>
     </a>
   
   
-    <a href="/2017/08/28/js-this/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript 的 this 指向问题深度解析</div>
+    <a href="/2018/07/01/vue-tip/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 Vue.js：那些好的，不怎么样的和糟糕的</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用-Chrome-浏览器的开发者工具截取整个页面​"><span class="toc-number">1.</span> <span class="toc-text">利用 Chrome 浏览器的开发者工具截取整个页面​</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动图演示操作步骤"><span class="toc-number">1.1.</span> <span class="toc-text">动图演示操作步骤</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -364,7 +356,7 @@
   
 
   
-  <div id="SOHUCS" sid="move-input" ></div> 
+  <div id="SOHUCS" sid="chrome-utils" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytgHBbjD"; 
