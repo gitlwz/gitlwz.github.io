@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: webpack | 刘文柱的博客</title>
+  <title>你应该知道的requestIdleCallback | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
-<meta name="keywords" content="刘文柱,vue,react,前端,js,jquery,javascript,html5,css3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘文柱的博客">
-<meta property="og:url" content="http://yoursite.com/tags/webpack/index.html">
+  <meta name="description" content="我们都知道React 16实现了新的调度策略(Fiber), 新的调度策略提到的异步、可中断，其实就是基于浏览器的 requestIdleCallback和requestAnimationFrame两个API。所以这里我们有必要了解一下这两个API。">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你应该知道的requestIdleCallback">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/js-requestIdleCallback/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta property="og:description" content="我们都知道React 16实现了新的调度策略(Fiber), 新的调度策略提到的异步、可中断，其实就是基于浏览器的 requestIdleCallback和requestAnimationFrame两个API。所以这里我们有必要了解一下这两个API。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://image-static.segmentfault.com/821/964/821964204-5ad6fd8d6ac94_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/150/705/1507056049-5ad6fe484f1cb_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/406/379/406379055-5ad70287355bd_articlex">
+<meta property="og:updated_time" content="2019-07-18T06:32:39.264Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘文柱的博客">
-<meta name="twitter:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta name="twitter:title" content="你应该知道的requestIdleCallback">
+<meta name="twitter:description" content="我们都知道React 16实现了新的调度策略(Fiber), 新的调度策略提到的异步、可中断，其实就是基于浏览器的 requestIdleCallback和requestAnimationFrame两个API。所以这里我们有必要了解一下这两个API。">
+<meta name="twitter:image" content="https://image-static.segmentfault.com/821/964/821964204-5ad6fd8d6ac94_articlex">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -148,60 +153,222 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js-requestIdleCallback" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/06/webpack-five/" class="archive-article-date">
-  	<time datetime="2017-09-06T12:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/06/webpack-five/">webpack解惑：require的五种用法</a>
+    <h1 class="article-title" itemprop="name">
+      你应该知道的requestIdleCallback
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/03/js-requestIdleCallback/" class="archive-article-date">
+  	<time datetime="2019-04-03T15:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>我们都知道React 16实现了新的调度策略(Fiber), 新的调度策略提到的异步、可中断，其实就是基于浏览器的 requestIdleCallback和requestAnimationFrame两个API。所以这里我们有必要了解一下这两个API。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="什么是requestIdleCallback"><a href="#什么是requestIdleCallback" class="headerlink" title="什么是requestIdleCallback?"></a>什么是requestIdleCallback?</h2><p>当关注用户体验，不希望因为一些不重要的任务（如统计上报）导致用户感觉到卡顿的话，就应该考虑使用requestIdleCallback。因为requestIdleCallback回调的执行的前提条件是当前浏览器处于空闲状态。</p>
+<blockquote>
+<p>requestIdleCallback will schedule work when there is free time at the end of a frame, or when the user is inactive.</p>
+</blockquote>
+<p>requestIdleCallback用法示例</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">requestIdelCallback(myNonEssentialWork);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNonEssentialWork</span> <span class="params">(deadline)</span> &#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// deadline.timeRemaining()可以获取到当前帧剩余时间</span></span><br><span class="line">  <span class="keyword">while</span> (deadline.timeRemaining() &gt; <span class="number">0</span> &amp;&amp; tasks.<span class="built_in">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    doWorkIfNeeded();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (tasks.<span class="built_in">length</span> &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    requestIdleCallback(myNonEssentialWork);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="requestIdleCallback和requestAnimationFrame有什么区别？"><a href="#requestIdleCallback和requestAnimationFrame有什么区别？" class="headerlink" title="requestIdleCallback和requestAnimationFrame有什么区别？"></a>requestIdleCallback和requestAnimationFrame有什么区别？</h2><p>requestAnimationFrame的回调会在每一帧确定执行，属于高优先级任务，而requestIdleCallback的回调则不一定，属于低优先级任务。<br>我们所看到的网页，都是浏览器一帧一帧绘制出来的，通常认为FPS为60的时候是比较流畅的，而FPS为个位数的时候就属于用户可以感知到的卡顿了，那么在一帧里面浏览器都要做哪些事情呢，如下所示：</p>
+<p><img src="https://image-static.segmentfault.com/821/964/821964204-5ad6fd8d6ac94_articlex"></p>
+<p>图中一帧包含了用户的交互、js的执行、以及requestAnimationFrame的调用，布局计算以及页面的重绘等工作。<br>假如某一帧里面要执行的任务不多，在不到16ms（1000/60)的时间内就完成了上述任务的话，那么这一帧就会有一定的空闲时间，这段时间就恰好可以用来执行requestIdleCallback的回调，如下图所示：</p>
+<p><img src="https://image-static.segmentfault.com/150/705/1507056049-5ad6fe484f1cb_articlex"></p>
+<p>由于requestIdleCallback利用的是帧的空闲时间，所以就有可能出现浏览器一直处于繁忙状态，导致回调一直无法执行，这其实也并不是我们期望的结果（如上报丢失），那么这种情况我们就需要在调用requestIdleCallback的时候传入第二个配置参数timeout了？</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">requestIdleCallback(myNonEssentialWork, &#123; timeout: <span class="number">2000</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNonEssentialWork</span> <span class="params">(deadline)</span> &#123;</span></span><br><span class="line">  <span class="comment">// 当回调函数是由于超时才得以执行的话，deadline.didTimeout为true</span></span><br><span class="line">  <span class="keyword">while</span> ((deadline.timeRemaining() &gt; <span class="number">0</span> || deadline.didTimeout) &amp;&amp;</span><br><span class="line">         tasks.<span class="built_in">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       doWorkIfNeeded();</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">if</span> (tasks.<span class="built_in">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    requestIdleCallback(myNonEssentialWork);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是因为timeout回调才得以执行的话，其实用户就有可能会感觉到卡顿了，因为一帧的执行时间必然已经超过16ms了</p>
+<h2 id="requestIdleCallback里面可以执行DOM修改操作吗？"><a href="#requestIdleCallback里面可以执行DOM修改操作吗？" class="headerlink" title="requestIdleCallback里面可以执行DOM修改操作吗？"></a>requestIdleCallback里面可以执行DOM修改操作吗？</h2><p>强烈建议不要，从上面一帧的构成里面可以看到，requestIdleCallback回调的执行说明前面的工作（包括样式变更以及布局计算）都已完成。如果我们在callback里面做DOM修改的话，之前所做的布局计算都会失效，而且如果下一帧里有获取布局（如getBoundingClientRect、clientWidth）等操作的话，浏览器就不得不执行强制重排工作,这会极大的影响性能，另外由于修改dom操作的时间是不可预测的，因此很容易超出当前帧空闲时间的阈值，故而不推荐这么做。推荐的做法是在requestAnimationFrame里面做dom的修改，可以在requestIdleCallback里面构建Document Fragment，然后在下一帧的requestAnimationFrame里面应用Fragment。</p>
+<p>除了不推荐DOM修改操作外，Promise的resolve(reject)操作也不建议放在里面，因为Promise的回调会在idle的回调执行完成后立刻执行，会拉长当前帧的耗时，所以不推荐。</p>
+<p>推荐放在requestIdleCallback里面的应该是小块的（microTask）并且可预测时间的任务。关于microTask推荐看<a href="https://juejin.im/entry/59082301a22b9d0065f1a186" target="_blank" rel="noopener">这里</a></p>
+<h2 id="requestIdleCallback的兼容情况"><a href="#requestIdleCallback的兼容情况" class="headerlink" title="requestIdleCallback的兼容情况"></a>requestIdleCallback的兼容情况</h2><p><img src="https://image-static.segmentfault.com/406/379/406379055-5ad70287355bd_articlex"></p>
+<p>推荐使用npm包<a href="https://www.npmjs.com/package/request-idle-callback" target="_blank" rel="noopener">request-idle-callback</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/03/js-requestIdleCallback/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/22/chrome/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">chrome开发者工具各种骚技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是requestIdleCallback"><span class="toc-number">1.</span> <span class="toc-text">什么是requestIdleCallback?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requestIdleCallback和requestAnimationFrame有什么区别？"><span class="toc-number">2.</span> <span class="toc-text">requestIdleCallback和requestAnimationFrame有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requestIdleCallback里面可以执行DOM修改操作吗？"><span class="toc-number">3.</span> <span class="toc-text">requestIdleCallback里面可以执行DOM修改操作吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requestIdleCallback的兼容情况"><span class="toc-number">4.</span> <span class="toc-text">requestIdleCallback的兼容情况</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/04/03/js-requestIdleCallback/",
+  owner: 'gitlwz',
+  repo: 'gitlwz.github.io',
+  oauth: {
+    client_id: '18bd283ed191f094ccb4',
+    client_secret: '380f257fad5b0beb149abda2db021a4a9333ee4d',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -221,9 +388,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
