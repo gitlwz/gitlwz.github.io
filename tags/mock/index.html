@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于 Vue.js：那些好的，不怎么样的和糟糕的 | 刘文柱的博客</title>
+  <title>Tag: mock | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用新的框架和库总是会让人兴奋，但也有压力。即使经过一些评估，你也永远不会知道你将会碰到什么样的意外情况。">
-<meta name="keywords" content="vue">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于 Vue.js：那些好的，不怎么样的和糟糕的">
-<meta property="og:url" content="http://yoursite.com/2018/07/01/vue-tip/index.html">
+  <meta name="description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
+<meta name="keywords" content="刘文柱,vue,react,前端,js,jquery,javascript,html5,css3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="刘文柱的博客">
+<meta property="og:url" content="http://yoursite.com/tags/mock/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="使用新的框架和库总是会让人兴奋，但也有压力。即使经过一些评估，你也永远不会知道你将会碰到什么样的意外情况。">
+<meta property="og:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://oscimg.oschina.net/oscnet/fd179ffdc0edf7c7e72bc13efe9d3db788e.jpg">
-<meta property="og:image" content="https://oscimg.oschina.net/oscnet/530966f40eec93000efe89058be063367da.jpg">
-<meta property="og:updated_time" content="2018-07-17T10:15:08.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 Vue.js：那些好的，不怎么样的和糟糕的">
-<meta name="twitter:description" content="使用新的框架和库总是会让人兴奋，但也有压力。即使经过一些评估，你也永远不会知道你将会碰到什么样的意外情况。">
-<meta name="twitter:image" content="https://oscimg.oschina.net/oscnet/fd179ffdc0edf7c7e72bc13efe9d3db788e.jpg">
+<meta name="twitter:title" content="刘文柱的博客">
+<meta name="twitter:description" content="业界小生,vue,react,前端,js,jquery,javascript,html5,css3个人博客。">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -152,277 +148,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue-tip" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      关于 Vue.js：那些好的，不怎么样的和糟糕的
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/07/util-mock/" class="archive-article-date">
+  	<time datetime="2019-04-07T13:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/07/util-mock/">一个建立本地mock服务的应用</a>
     </h1>
   
 
-        
-        <a href="/2018/07/01/vue-tip/" class="archive-article-date">
-  	<time datetime="2018-07-01T13:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>使用新的框架和库总是会让人兴奋，但也有压力。即使经过一些评估，你也永远不会知道你将会碰到什么样的意外情况。</p>
-</blockquote>
-<a id="more"></a>
-<p>Tips：以下纯属个人观点。</p>
-<p><img src="https://oscimg.oschina.net/oscnet/fd179ffdc0edf7c7e72bc13efe9d3db788e.jpg"></p>
-<h2 id="好的方面"><a href="#好的方面" class="headerlink" title="好的方面"></a>好的方面</h2><h3 id="响应性（Reactivity）"><a href="#响应性（Reactivity）" class="headerlink" title="响应性（Reactivity）"></a>响应性（Reactivity）</h3><p>数据绑定在前端领域是个大问题。现在我们更专注于数据，而不像使用 jQuery 一样对 DOM 进行微观管理。Vue 通过双向响应数据绑定系统巧妙地处理这个问题。</p>
-<p>为实现这种响应性，Vue 为状态中的每个变量添加了许多 getter 和 setter ，以便它可以跟踪更改并自动更新 DOM 。这种方法并不完美，我们稍后会再提到。</p>
-<h3 id="高可用性（Batteries-included）"><a href="#高可用性（Batteries-included）" class="headerlink" title="高可用性（Batteries included）"></a>高可用性（Batteries included）</h3><p>使用 Vue ，你无需使用 MobX 或 React Router 等非官方软件包来处理应用程序的关键部分。Vue 提供了 Vue Router 和 Vuex 。这些都是很好的库，而且是为 Vue 量身定制的。</p>
-<h3 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h3><p>Vue 非常快。它也许不是最快的，但它的性能表现对绝大多数 Web 项目来说都是顶级的。你上一次需要每秒渲染和更新数千个 DOM 元素是什么时候？</p>
-<h3 id="HTML-模板"><a href="#HTML-模板" class="headerlink" title="HTML 模板"></a>HTML 模板</h3><p>这是在 JavaScript 开发者中具有争议性的一个话题。无论你喜欢还是不喜欢，HTML 模板已经在许多语言中进行了数十年的实战打磨，并且是在 Vue 中编写动态标记（dynamic markup）的首选。</p>
-<p>此外，Vue 也支持 JSX 。</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li><p>HTML、CSS 和 JavaScript 的单个文件组件。</p>
-</li>
-<li><p>轻量。大约 20KB（gzip）。</p>
-</li>
-<li><p>高可扩展（mixins、插件等）。</p>
-</li>
-<li><p>文档完善（除了下面提到的一些例外）。</p>
-</li>
-<li><p>可逐步采用，甚至用作 jQuery 的替代品。</p>
-</li>
-<li><p>易于上手。</p>
-</li>
-</ul>
-<h2 id="呃……不怎么样的"><a href="#呃……不怎么样的" class="headerlink" title="呃……不怎么样的"></a>呃……不怎么样的</h2><h3 id="组件模板（Component-boilerplate）"><a href="#组件模板（Component-boilerplate）" class="headerlink" title="组件模板（Component boilerplate）"></a>组件模板（Component boilerplate）</h3><p>从 React 迁移到 Vue ，我似乎有感受到一股清新空气，不再到处 bind(this) 或 setState（）。好极了！但过了一段时间，我开始质疑 Vue 组件语法的有效性。</p>
-<p>Vue 组件是使用对象创建的，这是定义组件函数的示例：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>&#123;</span><br><span class="line"> methods: &#123;</span><br><span class="line">  increment () &#123;</span><br><span class="line">   this.count++;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你将为计算属性、组件状态、监视工具等添加类似的模板。Vue 中几乎所有的内容都有自己的特殊语法和更多的模板文件。</p>
-<p>相比之下，Marko 也有相同的东西，但更简洁：</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class &#123;</span><br><span class="line"> increment() &#123;</span><br><span class="line">  this.<span class="keyword">state</span>.count++;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我的重点不是关于是否要使用类，而是 Vue 使用的是任意对象结构而不是语言特性。</p>
-<p>如果你觉得我有点想找事，我不会怪你。 Vue 还提供了基于类的语法，但它实际上更像是事后诸葛亮。</p>
-<h3 id="社区？聊天室？（Chat-based-community）"><a href="#社区？聊天室？（Chat-based-community）" class="headerlink" title="社区？聊天室？（Chat based community）"></a>社区？聊天室？（Chat based community）</h3><p>Vue 社区用户喜欢在 Discord 上闲聊，这更像是一款专为游戏玩家社区设计的聊天工具。如果你遇到问题，聊天可能是你最好的选择，因为官方论坛是一片荒凉的土地，而且你也不敢在 Github 上问问题。</p>
-<p>聊天很乱，更主要的是聊天的内容无法被搜索引擎索引到。同样的问题（及其相关的讨论）注定要一次又一次地重复。</p>
-<p>这种使用聊天来解答问题的趋势正困扰着开源项目，我认为它应该停止，根本没有集体学习作用。</p>
-<h3 id="没那么神奇（Not-so-magic）"><a href="#没那么神奇（Not-so-magic）" class="headerlink" title="没那么神奇（Not so magic）"></a>没那么神奇（Not so magic）</h3><p>只要你不偏离正轨，一切都会很好，但过了一段时间你可能会发现 Vue 周围有很多小小的 ifs 和 buts 。</p>
-<p>比方说：</p>
-<ul>
-<li><p>响应式系统仅跟踪一定条件下的变化。不要指望它能提供任何你想要的东西。通常，你可能需要尽可能地简化和整理数据以避免头痛。当然，这些都在文档的细则中有进行解释。</p>
-</li>
-<li><p>过渡系统 <vue-transition> 不适用于列表。实际上，你需要使用的是 <transition-group>，它的工作方式略有不同，并且会在 DOM 中引入新元素。此外，有些东西你本期望会是一个已解决的问题，但实际上你必须要自己去实现它。</transition-group></vue-transition></p>
-</li>
-<li><p>如果你需要组件实例中的 non-reactive 状态，你将进入一个未知的领域。</p>
-</li>
-</ul>
-<p>等等。</p>
-<p>不要误会我的意思，这些都不是什么大问题，但似乎每当你开始动手摸索时，就会出现其它的小烦扰。</p>
-<p>糟糕的方面</p>
-<h3 id="架构模式不清晰（Unclear-architectural-patterns）"><a href="#架构模式不清晰（Unclear-architectural-patterns）" class="headerlink" title="架构模式不清晰（Unclear architectural patterns）"></a>架构模式不清晰（Unclear architectural patterns）</h3><p>比如，提一个问题：在组件中还是在 Vuex 中处理 API 请求会更好?</p>
-<p>该文档提供了有关如何在 Vuex 中处理 API 逻辑的示例，甚至有一个漂亮的图表：</p>
-<p>这是否意味着验证逻辑也适用于 Vuex ？状态管理器会开始调解所有应用程序逻辑？</p>
-<p>这些都不是很清晰的问题。大多数人会选择直接将 non-state 逻辑插入到 Vuex 操作中，或者更糟糕的是，直接插入到组件中，因为 Vue 的主页上有一段视频说明：</p>
-<p><img src="https://oscimg.oschina.net/oscnet/530966f40eec93000efe89058be063367da.jpg"></p>
-<p>现在来回答我上面的问题：API 逻辑不应该用 Vuex 或组件编写。在一些官方代码示例中，也有很好的说明。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Vue 的使用率一直在不断增长，我怀疑这种趋势会很快停止。 它离 React 还很远（至少在中国以外），并且还需要与 Angular 竞争第二名。</p>
-<p>在过去，不同于 React 的过于理想化，我认为 Vue 是一个很实用的库。现在的我仍然这么认为，但另一方面，我觉得 Vue 需要在实用主义之上更注重用户层面的精致、专注、优雅和简洁。</p>
-<p>在使用两年后，我对 Vue 的印象一直是积极正面的。我仍然相信将我的团队从 React 迁移到 Vue 是一个很好的决定。不是因为 Vue 更好，而是因为它更适合我们。</p>
-<p>Vue 能很好地完成了它的“本职”功能，并且在其他人失败的领域取得了成功，但起码到现在，客观来说，我并不认为 Vue 有比你技能雷达中的其他选项有更强或更差。</p>
-<h2 id="补充：Vue-CLI"><a href="#补充：Vue-CLI" class="headerlink" title="补充：Vue CLI"></a>补充：Vue CLI</h2><p>上文中没有提到 Vue CLI ，我想解释下原因。</p>
-<p>Vue CLI 是一个非常方便的脚手架工具。 在即将推出的 3.0 版本中，它将更加出色，因为它是一个完整的项目管理解决方案。</p>
-<p>但是，便利的同时往往会带来更多成本，在我看来，这里的代价是不合理的。 Webpack 并不像很多人说的那么难，创建自己的入门套件可减轻大量配置时间。</p>
-<p>当需要的成本低时，定制自己的自定义产品才更有意义。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mock</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/01/vue-tip/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/22/chrome-utils/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          如何利用 Chrome 浏览器实现滚动截屏
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/23/js-upload3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端本地文件操作与上传3</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#好的方面"><span class="toc-number">1.</span> <span class="toc-text">好的方面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#响应性（Reactivity）"><span class="toc-number">1.1.</span> <span class="toc-text">响应性（Reactivity）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高可用性（Batteries-included）"><span class="toc-number">1.2.</span> <span class="toc-text">高可用性（Batteries included）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#速度"><span class="toc-number">1.3.</span> <span class="toc-text">速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-模板"><span class="toc-number">1.4.</span> <span class="toc-text">HTML 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.5.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#呃……不怎么样的"><span class="toc-number">2.</span> <span class="toc-text">呃……不怎么样的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件模板（Component-boilerplate）"><span class="toc-number">2.1.</span> <span class="toc-text">组件模板（Component boilerplate）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#社区？聊天室？（Chat-based-community）"><span class="toc-number">2.2.</span> <span class="toc-text">社区？聊天室？（Chat based community）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没那么神奇（Not-so-magic）"><span class="toc-number">2.3.</span> <span class="toc-text">没那么神奇（Not so magic）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#架构模式不清晰（Unclear-architectural-patterns）"><span class="toc-number">2.4.</span> <span class="toc-text">架构模式不清晰（Unclear architectural patterns）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：Vue-CLI"><span class="toc-number">4.</span> <span class="toc-text">补充：Vue CLI</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
-<script>
-var Gitment_id =  "http://yoursite.com/2018/07/01/vue-tip/";
-if(Gitment_id.length > 48){
-	Gitment_id = Gitment_id.slice(-48);
-}
-var gitment = new Gitment({
-  id: Gitment_id,
-  owner: 'gitlwz',
-  repo: 'gitlwz.github.io',
-  oauth: {
-    client_id: '18bd283ed191f094ccb4',
-    client_secret: '380f257fad5b0beb149abda2db021a4a9333ee4d',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -442,9 +225,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
