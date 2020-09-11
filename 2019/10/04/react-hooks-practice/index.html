@@ -6,34 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>14 个你可能不知道的 JavaScript 调试技巧 | 刘文柱的博客</title>
+  <title>React Hooks 最佳实践 | 刘文柱的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们会列出14个你可能不知道的调试技巧, 但是一旦知道了，你就会迫不及待的想在下次需要调试 JavaScript 代码的时候使用它们！虽然许多技巧也可以用在别的检查工具上，但大部分的技巧是用在 Chrome Inspector 和 Firefox 上的。">
-<meta name="keywords" content="js,debug">
+  <meta name="description" content="转载 dt-fe / weekly  React 16.8 于 2019.2 正式发布，这是一个能提升代码质量和开发效率的特性，笔者就抛砖引玉先列出一些实践点，希望得到大家进一步讨论。 然而需要理解的是，没有一个完美的最佳实践规范，对一个高效团队来说，稳定的规范比合理的规范更重要，因此这套方案只是最佳实践之一。">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="14 个你可能不知道的 JavaScript 调试技巧">
-<meta property="og:url" content="http://yoursite.com/2017/11/18/js-debug/index.html">
+<meta property="og:title" content="React Hooks 最佳实践">
+<meta property="og:url" content="http://yoursite.com/2019/10/04/react-hooks-practice/index.html">
 <meta property="og:site_name" content="刘文柱的博客">
-<meta property="og:description" content="我们会列出14个你可能不知道的调试技巧, 但是一旦知道了，你就会迫不及待的想在下次需要调试 JavaScript 代码的时候使用它们！虽然许多技巧也可以用在别的检查工具上，但大部分的技巧是用在 Chrome Inspector 和 Firefox 上的。">
+<meta property="og:description" content="转载 dt-fe / weekly  React 16.8 于 2019.2 正式发布，这是一个能提升代码质量和开发效率的特性，笔者就抛砖引玉先列出一些实践点，希望得到大家进一步讨论。 然而需要理解的是，没有一个完美的最佳实践规范，对一个高效团队来说，稳定的规范比合理的规范更重要，因此这套方案只是最佳实践之一。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152721113-738942540.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152732613-488611453.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152749878-1741521801.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152801034-650438663.png">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152811956-1241707512.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152830566-534123258.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152841238-2052681183.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152849534-827324251.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152902050-162034257.png">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152910675-821294502.png">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152919519-684603120.jpg">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152926941-1631640353.png">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152936347-1575735023.jpg">
-<meta property="og:updated_time" content="2018-08-09T08:44:31.820Z">
+<meta property="og:updated_time" content="2020-09-11T00:29:09.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="14 个你可能不知道的 JavaScript 调试技巧">
-<meta name="twitter:description" content="我们会列出14个你可能不知道的调试技巧, 但是一旦知道了，你就会迫不及待的想在下次需要调试 JavaScript 代码的时候使用它们！虽然许多技巧也可以用在别的检查工具上，但大部分的技巧是用在 Chrome Inspector 和 Firefox 上的。">
-<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152721113-738942540.jpg">
+<meta name="twitter:title" content="React Hooks 最佳实践">
+<meta name="twitter:description" content="转载 dt-fe / weekly  React 16.8 于 2019.2 正式发布，这是一个能提升代码质量和开发效率的特性，笔者就抛砖引玉先列出一些实践点，希望得到大家进一步讨论。 然而需要理解的是，没有一个完美的最佳实践规范，对一个高效团队来说，稳定的规范比合理的规范更重要，因此这套方案只是最佳实践之一。">
   
     <link rel="alternative" href="/atom.xml" title="刘文柱的博客" type="application/atom+xml">
   
@@ -163,86 +149,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js-debug" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react-hooks-practice" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      14 个你可能不知道的 JavaScript 调试技巧
+      React Hooks 最佳实践
     </h1>
   
 
         
-        <a href="/2017/11/18/js-debug/" class="archive-article-date">
-  	<time datetime="2017-11-18T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
+        <a href="/2019/10/04/react-hooks-practice/" class="archive-article-date">
+  	<time datetime="2019-10-04T13:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们会列出14个你可能不知道的调试技巧, 但是一旦知道了，你就会迫不及待的想在下次需要调试 JavaScript 代码的时候使用它们！<br>虽然许多技巧也可以用在别的检查工具上，但大部分的技巧是用在 Chrome Inspector 和 Firefox 上的。</p>
-<a id="more"></a>
-<h2 id="1-‘debugger-’"><a href="#1-‘debugger-’" class="headerlink" title="1. ‘debugger;’"></a>1. ‘debugger;’</h2><p>‘debugger’ 是 console.log 之外我最喜欢的调试工具，简单暴力。只要把它写到代码里，Chrome 运行的时候就会自动自动停在那。你甚至可以用条件语句把它包裹起来，这样就可以在需要的时候才执行它。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (thisThing) &#123;</span><br><span class="line">    <span class="keyword">debugger</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-把-objects-输出成表格"><a href="#2-把-objects-输出成表格" class="headerlink" title="2. 把 objects 输出成表格"></a>2. 把 objects 输出成表格</h2><p>有时候你可能有一堆对象需要查看。你可以用 console.log 把每一个对象都输出出来，你也可以用 console.table 语句把它们直接输出为一个表格！</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animals = [</span><br><span class="line">    &#123; <span class="string">animal:</span> <span class="string">'Horse'</span>, <span class="string">name:</span> <span class="string">'Henry'</span>, <span class="string">age:</span> <span class="number">43</span> &#125;,</span><br><span class="line">    &#123; <span class="string">animal:</span> <span class="string">'Dog'</span>, <span class="string">name:</span> <span class="string">'Fred'</span>, <span class="string">age:</span> <span class="number">13</span> &#125;,</span><br><span class="line">    &#123; <span class="string">animal:</span> <span class="string">'Cat'</span>, <span class="string">name:</span> <span class="string">'Frodo'</span>, <span class="string">age:</span> <span class="number">18</span> &#125;</span><br><span class="line">];</span><br><span class="line"> </span><br><span class="line">console.table(animals);</span><br></pre></td></tr></table></figure>
-<p>输出结果:</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152721113-738942540.jpg"></p>
-<h2 id="3-试遍所有的尺寸"><a href="#3-试遍所有的尺寸" class="headerlink" title="3. 试遍所有的尺寸"></a>3. 试遍所有的尺寸</h2><p>虽然把各种各样的手机都摆在桌子上看起来很酷，但这却很不现实。为什么不选择直接调整界面大小呢? Chrome 浏览器提供了你所需要的一切。 进入检查面板点击 ‘切换设备模式’ 按钮，这样你就可以调整视窗的大小了！</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152732613-488611453.jpg"></p>
-<h2 id="4-如何快速定位-DOM-元素"><a href="#4-如何快速定位-DOM-元素" class="headerlink" title="4. 如何快速定位 DOM 元素"></a>4. 如何快速定位 DOM 元素</h2><p>在元素面板上标记一个 DOM 元素并在 concole 中使用它。Chrome Inspector 的历史记录保存最近的五个元素，最后被标记的元素记为 $0，倒数第二个被标记的记为 $1，以此类推。</p>
-<p>如果你像下面那样把元素按顺序标记为 ‘item-4′, ‘item-3’, ‘item-2’, ‘item-1’, ‘item-0’ ，你就可以在 concole 中获取到 DOM 节点:</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152749878-1741521801.jpg"></p>
-<h2 id="5-用-console-time-和-console-timeEnd-测试循环耗时"><a href="#5-用-console-time-和-console-timeEnd-测试循环耗时" class="headerlink" title="5. 用 console.time() 和 console.timeEnd() 测试循环耗时"></a>5. 用 console.time() 和 console.timeEnd() 测试循环耗时</h2><p>当你想知道某些代码的执行时间的时候这个工具将会非常有用，特别是当你定位很耗时的循环的时候。你甚至可以通过标签来设置多个 timer 。demo 如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'Timer1'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> items = [];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++)&#123;</span><br><span class="line">   items.push(&#123;<span class="attr">index</span>: i&#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'Timer1'</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152801034-650438663.png"></p>
-<h2 id="6-获取函数的堆栈轨迹信息"><a href="#6-获取函数的堆栈轨迹信息" class="headerlink" title="6.获取函数的堆栈轨迹信息"></a>6.获取函数的堆栈轨迹信息</h2><p>你可能知道 JavaScript 框架会产生很多的代码–迅速的。</p>
-<p>它创建视图触发事件而且你最终会想知道函数调用是怎么发生的。</p>
-<p>因为 JavaScript 不是一个很结构化的语言，有时候很难完整的了解到底发生了什么以及什么时候发生的。 这个时候就轮到 console.trace（在终端的话就只有 trace ）出场来调试 JavaScript了 。</p>
-<p>假设你现在想看 car 实例在第33行调用 funcZ 函数的完整堆栈轨迹信息:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car;</span><br><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	func2();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	func4();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	car = <span class="keyword">new</span> Car();</span><br><span class="line">	car.funcX();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.brand = ‘volvo’;</span><br><span class="line">	<span class="keyword">this</span>.color = ‘red’;</span><br><span class="line">	<span class="keyword">this</span>.funcX = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcY();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.funcY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcZ();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.funcZ = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.trace(‘trace car’)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">func1();</span><br><span class="line"><span class="keyword">var</span> car; </span><br><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	func2();</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	func4();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> func4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	car = <span class="keyword">new</span> Car();</span><br><span class="line">	car.funcX();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.brand = ‘volvo’;</span><br><span class="line">	<span class="keyword">this</span>.color = ‘red’;</span><br><span class="line">	<span class="keyword">this</span>.funcX = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcY();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.funcY = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcZ();</span><br><span class="line">	&#125;</span><br><span class="line"> 	<span class="keyword">this</span>.funcZ = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.trace(‘trace car’)</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line">func1();</span><br></pre></td></tr></table></figure>
-<p>第33行会输出:</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152811956-1241707512.jpg"></p>
-<p>你可以看到func1调用了func2, func2又调用了func4。Func4 创建了Car的实例，然后调用了方法car.funcX，等等。</p>
-<p>尽管你感觉你对自己的脚本代码非常了解，这种分析依然是有用的。 比如你想优化你的代码。 获取到堆栈轨迹信息和一个所有相关函数的列表。每一行都是可点击的，你可以在他们中间前后穿梭。 这感觉就像特地为你准备的菜单。</p>
-<h2 id="7-格式化代码使调试-JavaScript-变得容易"><a href="#7-格式化代码使调试-JavaScript-变得容易" class="headerlink" title="7. 格式化代码使调试 JavaScript 变得容易"></a>7. 格式化代码使调试 JavaScript 变得容易</h2><p>有时候你发现产品有一个问题，而 source map 并没有部署到服务器。不要害怕。Chrome 可以格式化 JavaScript 文件，使之易读。格式化出来的代码在可读性上可能不如源代码 —— 但至少你可以观察到发生的错误。点击源代码查看器下面的美化代码按钮 {} 即可。</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152830566-534123258.jpg"></p>
-<h2 id="8-快速找到调试函数"><a href="#8-快速找到调试函数" class="headerlink" title="8. 快速找到调试函数"></a>8. 快速找到调试函数</h2><p>来看看怎么在函数中设置断点。</p>
-<p>通常情况下有两种方法：</p>
+        <blockquote>
+<p>转载 <a href="https://github.com/dt-fe/weekly/blob/v2/120.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%20%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B.md" target="_blank" rel="noopener">dt-fe / weekly</a></p>
+</blockquote>
+<p>React 16.8 于 2019.2 正式发布，这是一个能提升代码质量和开发效率的特性，笔者就抛砖引玉先列出一些实践点，希望得到大家进一步讨论。</p>
+<p>然而需要理解的是，没有一个完美的最佳实践规范，对一个高效团队来说，稳定的规范比合理的规范更重要，因此这套方案只是最佳实践之一。<br><a id="more"></a></p>
+<h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<li>拥有较为稳定且理解函数式编程的前端团队。</li>
+<li>开启 ESLint 插件：<a href="https://www.npmjs.com/package/eslint-plugin-react-hooks" target="_blank" rel="noopener">eslint-plugin-react-hooks</a>。</li>
+</ul>
+<h3 id="组件定义"><a href="#组件定义" class="headerlink" title="组件定义"></a>组件定义</h3><p>Function Component 采用 <code>const</code> + 箭头函数方式定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const App: React.FC&lt;&#123; title: string &#125;&gt; = (&#123; title &#125;) =&gt; &#123;</span><br><span class="line">  return React.useMemo(() =&gt; &lt;div&gt;&#123;title&#125;&lt;/div&gt;, [title]);</span><br><span class="line">&#125;;</span><br><span class="line">App.defaultProps = &#123;</span><br><span class="line">  title: &apos;Function Component&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子包含了：</p>
 <ol>
-<li>在查看器中找到某行代码并在此添加断点</li>
-<li>在脚本中添加 debugger</li>
+<li>用 <code>React.FC</code> 申明 Function Component 组件类型与定义 Props 参数类型。</li>
+<li>用 <code>React.useMemo</code>  优化渲染性能。</li>
+<li>用 <code>App.defaultProps</code> 定义 Props 的默认值。</li>
 </ol>
-<p>这两种方法都必须在文件中找到需要调试的那一行。</p>
-<p>使用控制台是不太常见的方法。在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。</p>
-<p>这个操作很快，但它不能用于局部函数或匿名函数。不过如果不是这两种情况下，这可能是调试函数最快的方法。（注意：这里并不是在调用 console.debug 函数）。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	func2();</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> Car = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.funcX = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcY();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">this</span>.funcY = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.funcZ();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br></pre></td></tr></table></figure>
-<p>在控制台中输入 debug(car.funcY)，脚本会在调试模式下，进入 car.funcY 的时候停止运行：</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152841238-2052681183.jpg"></p>
-<h2 id="9-屏蔽不相关代码"><a href="#9-屏蔽不相关代码" class="headerlink" title="9.  屏蔽不相关代码"></a>9.  屏蔽不相关代码</h2><p>如今，经常在应用中引入多个库或框架。其中大多数都经过良好的测试且相对没有缺陷。但是，调试器仍然会进入与此调试任务无关的文件。解决方案是将不需要调试的脚本屏蔽掉。当然这也可以包括你自己的脚本。 点此阅读更多关于调试不相关代码（<a href="http://raygun.com/blog/javascript-debugging-with-black-box/）。" target="_blank" rel="noopener">http://raygun.com/blog/javascript-debugging-with-black-box/）。</a></p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152849534-827324251.jpg"></p>
-<h2 id="10-在复杂的调试过程中寻找重点"><a href="#10-在复杂的调试过程中寻找重点" class="headerlink" title="10. 在复杂的调试过程中寻找重点"></a>10. 在复杂的调试过程中寻找重点</h2><p>在更复杂的调试中，我们有时需要输出很多行。你可以做的事情就是保持良好的输出结构，使用更多控制台函数，例如 Console.log，console.debug，console.warn，console.info，console.error 等等。然后，你可以在控制台中快速浏览。但有时候，某些JavaScrip调试信息并不是你需要的。</p>
-<p>现在，可以自己美化调试信息了。在调试JavaScript时，可以使用CSS并自定义控制台信息：</p>
-<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.todo = <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(‘ % c % s % s % s‘, ‘<span class="attribute">color</span>: yellow; background - <span class="attribute">color</span>: black;’, ‘–‘, msg, ‘–‘);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.important = <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(‘ % c % s % s % s’, ‘<span class="attribute">color</span>: brown; <span class="built_in">font</span> - <span class="attribute">weight</span>: bold; text - <span class="attribute">decoration</span>: underline;’, ‘–‘, msg, ‘–‘);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.todo(“This is something that’ s need to be fixed”);</span><br><span class="line"><span class="built_in">console</span>.important(‘This is an important message’);</span><br></pre></td></tr></table></figure>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152902050-162034257.png"></p>
-<p>例如：</p>
-<p>在console.log()中， 可以用%s设置字符串，%i设置数字，%c设置自定义样式等等，还有很多更好的console.log()使用方法。 如果使用的是单页应用框架，可以为视图（view）消息创建一个样式，为模型（models），集合（collections），控制器（controllers）等创建另一个样式。也许还可以像 wlog，clog 和 mlog 一样发挥你的想象力！</p>
-<h2 id="11-查看具体的函数调用和它的参数"><a href="#11-查看具体的函数调用和它的参数" class="headerlink" title="11. 查看具体的函数调用和它的参数"></a>11. 查看具体的函数调用和它的参数</h2><p>在 Chrome 浏览器的控制台（Console）中，你会把你的注意力集中在具体的函数上。每次这个函数被调用，它的值就会被记录下来。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span><span class="params">(x, y, z)</span> </span>&#123;</span><br><span class="line"><span class="comment">//....</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152910675-821294502.png"></p>
-<p>这是查看将哪些参数传递到函数的一种很好的方法。但我必须说，如果控制台能够告诉我们需要多少参数，那就好了。在上面的例子中，函数1期望3个参数，但是只有2个参数被传入。如果代码没有在代码中处理，它可能会导致一个 bug 。</p>
-<h2 id="12-在控制台中快速访问元素"><a href="#12-在控制台中快速访问元素" class="headerlink" title="12. 在控制台中快速访问元素"></a>12. 在控制台中快速访问元素</h2><p>在控制台中执行 querySelector 一种更快的方法是使用美元符。$(‘css-selector’)  将会返回第一个匹配的 CSS 选择器。$$(‘css-selector’) 将会返回所有。如果你使用一个元素超过一次，它就值得被作为一个变量。</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152919519-684603120.jpg"></p>
-<h2 id="13-Postman-很棒（但-Firefox-更快）"><a href="#13-Postman-很棒（但-Firefox-更快）" class="headerlink" title="13. Postman 很棒（但 Firefox 更快）"></a>13. Postman 很棒（但 Firefox 更快）</h2><p>很多开发人员都使用 Postman 来处理 Ajax 请求。Postman 真不错，但每次都需要打开新的浏览器窗口，新写一个请求对象来测试。这确实有点儿烦人。</p>
-<p>有时候直接使用在用的浏览器会更容易。</p>
-<p>这样的话，如果你想请求一个通过密码保证安全的页面时，就不再需要担心验证 Cookie 的问题。这就是 Firefox 中编辑并重新发送请求的方式。</p>
-<p>打开探查器并进入网络页面，右键单击要处理的请求，选择编辑并重新发送。现在你想怎么改就怎么改。可以修改头信息，也可以编辑参数，然后点击重新发送即可。</p>
-<p>现在我发送了两次同一个请求，但使用了不同的参数：</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152926941-1631640353.png"></p>
-<h2 id="14-节点变化时中断"><a href="#14-节点变化时中断" class="headerlink" title="14. 节点变化时中断"></a>14. 节点变化时中断</h2><p>DOM 是个有趣的东西。有时候它发生了变化，但你却并不知道为什么会这样。不过，如果你需要调试 JavaScript，Chrome 可以在 DOM 元素发生变化的时候暂停处理。你甚至可以监控它的属性。在 Chrome 探查器上，右键点击某个元素，并选择中断（Break on）选项来使用：</p>
-<p><img src="https://images2017.cnblogs.com/blog/262571/201712/262571-20171206152936347-1575735023.jpg"></p>
+<h4 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><blockquote>
+<p>为什么不用 React.memo?<br>推荐使用 <code>React.useMemo</code> 而不是 <code>React.memo</code>，因为在组件通信时存在 <code>React.useContext</code> 的用法，这种用法会使所有用到的组件重渲染，只有 <code>React.useMemo</code> 能处理这种场景的按需渲染。</p>
+</blockquote>
+<blockquote>
+<p>没有性能问题的组件也要使用 useMemo 吗？<br>要，考虑未来维护这个组件的时候，随时可能会通过 <code>useContext</code> 等注入一些数据，这时候谁会想起来添加 <code>useMemo</code> 呢？</p>
+</blockquote>
+<blockquote>
+<p>为什么不用解构方式代替 defaultProps?<br>虽然解构方式书写 <code>defaultProps</code> 更优雅，但存在一个硬伤：对于对象类型每次 Rerender 时引用都会变化，这会带来性能问题，因此不要这么做。</p>
+</blockquote>
+<h3 id="局部状态"><a href="#局部状态" class="headerlink" title="局部状态"></a>局部状态</h3><p>局部状态有三种，根据常用程度依次排列： <code>useState</code> <code>useRef</code> <code>useReducer</code> 。</p>
+<h4 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [hide, setHide] = React.useState(false);</span><br><span class="line">const [name, setName] = React.useState(&apos;BI&apos;);</span><br></pre></td></tr></table></figure>
+<p>状态函数名要表意，尽量聚集在一起申明，方便查阅。</p>
+<h4 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const dom = React.useRef(null);</span><br></pre></td></tr></table></figure>
+<p><code>useRef</code> 尽量少用，大量 Mutable 的数据会影响代码的可维护性。</p>
+<p>但对于不需重复初始化的对象推荐使用 <code>useRef</code> 存储，比如 <code>new G2()</code> 。</p>
+<h4 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h4><p>局部状态不推荐使用 <code>useReducer</code> ，会导致函数内部状态过于复杂，难以阅读。 <code>useReducer</code> 建议在多组件间通信时，结合 <code>useContext</code> 一起使用。</p>
+<h4 id="FAQ-1"><a href="#FAQ-1" class="headerlink" title="FAQ"></a>FAQ</h4><blockquote>
+<p>可以在函数内直接申明普通常量或普通函数吗？<br>不可以，Function Component 每次渲染都会重新执行，常量推荐放到函数外层避免性能问题，函数推荐使用 <code>useCallback</code> 申明。</p>
+</blockquote>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>所有 Function Component 内函数必须用 <code>React.useCallback</code> 包裹，以保证准确性与性能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const [hide, setHide] = React.useState(false);</span><br><span class="line">  </span><br><span class="line">const handleClick = React.useCallback(() =&gt; &#123;</span><br><span class="line">  setHide(isHide =&gt; !isHide)</span><br><span class="line">&#125;, [])</span><br></pre></td></tr></table></figure>
+<p><code>useCallback</code> 第二个参数必须写，<a href="https://www.npmjs.com/package/eslint-plugin-react-hooks" target="_blank" rel="noopener">eslint-plugin-react-hooks</a> 插件会自动填写依赖项。</p>
+<h3 id="发请求"><a href="#发请求" class="headerlink" title="发请求"></a>发请求</h3><p>发请求分为操作型发请求与渲染型发请求。</p>
+<h4 id="操作型发请求"><a href="#操作型发请求" class="headerlink" title="操作型发请求"></a>操作型发请求</h4><p>操作型发请求，作为回调函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">return React.useMemo(() =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div onClick=&#123;requestService.addList&#125; /&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;, [requestService.addList])</span><br></pre></td></tr></table></figure>
+<h4 id="渲染型发请求"><a href="#渲染型发请求" class="headerlink" title="渲染型发请求"></a>渲染型发请求</h4><p>渲染型发请求在 <code>useAsync</code> 中进行，比如刷新列表页，获取基础信息，或者进行搜索， <strong>都可以抽象为依赖了某些变量，当这些变量变化时要重新取数</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const &#123; loading, error, value &#125; = useAsync(async () =&gt; &#123;</span><br><span class="line">  return requestService.freshList(id);</span><br><span class="line">&#125;, [requestService.freshList, id]);</span><br></pre></td></tr></table></figure>
+<h3 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h3><p>简单的组件间通信使用透传 Props 变量的方式，而频繁组件间通信使用 <code>React.useContext</code> 。</p>
+<p>以一个复杂大组件为例，如果组件内部拆分了很多模块， <strong>但需要共享很多内部状态</strong> ，最佳实践如下：</p>
+<h4 id="定义组件内共享状态-store-ts"><a href="#定义组件内共享状态-store-ts" class="headerlink" title="定义组件内共享状态 - store.ts"></a>定义组件内共享状态 - store.ts</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export const StoreContext = React.createContext&lt;&#123;</span><br><span class="line">  state: State;</span><br><span class="line">  dispatch: React.Dispatch&lt;Action&gt;;</span><br><span class="line">&#125;&gt;(null)</span><br><span class="line">export interface State &#123;&#125;;</span><br><span class="line">export interface Action &#123; type: &apos;xxx&apos; &#125; | &#123; type: &apos;yyy&apos; &#125;;</span><br><span class="line">export const initState: State = &#123;&#125;;</span><br><span class="line">export const reducer: React.Reducer&lt;State, Action&gt; = (state, action) =&gt; &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    default:</span><br><span class="line">      return state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="根组件注入共享状态-main-ts"><a href="#根组件注入共享状态-main-ts" class="headerlink" title="根组件注入共享状态 - main.ts"></a>根组件注入共享状态 - main.ts</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; StoreContext, reducer, initState &#125; from &apos;./store&apos;</span><br><span class="line">const AppProvider: React.FC = props =&gt; &#123;</span><br><span class="line">  const [state, dispatch] = React.useReducer(reducer, initState);</span><br><span class="line">  return React.useMemo(() =&gt; (</span><br><span class="line">    &lt;StoreContext.Provider value=&#123;&#123; state, dispatch &#125;&#125;&gt;</span><br><span class="line">      &lt;App /&gt;</span><br><span class="line">    &lt;/StoreContext.Provider&gt;</span><br><span class="line">  ), [state, dispatch])</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="任意子组件访问-修改共享状态-child-ts"><a href="#任意子组件访问-修改共享状态-child-ts" class="headerlink" title="任意子组件访问/修改共享状态 - child.ts"></a>任意子组件访问/修改共享状态 - child.ts</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; StoreContext &#125; from &apos;./store&apos;</span><br><span class="line">const app: React.FC = () =&gt; &#123;</span><br><span class="line">  const &#123; state, dispatch &#125; = React.useContext(StoreContext);</span><br><span class="line">  </span><br><span class="line">  return React.useMemo(() =&gt; (</span><br><span class="line">    &lt;div&gt;&#123;state.name&#125;&lt;/div&gt;</span><br><span class="line">  ), [state.name])</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如上解决了 <strong>多个联系紧密组件模块间便捷共享状态的问题</strong> ，但有时也会遇到需要共享根组件 Props 的问题，<strong>这种不可修改的状态不适合一并塞到 <code>StoreContext</code> 里</strong>，我们新建一个 <code>PropsContext</code> 注入根组件的 Props：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const PropsContext = React.createContext&lt;Props&gt;(null)</span><br><span class="line">const AppProvider: React.FC&lt;Props&gt; = props =&gt; &#123;</span><br><span class="line">  return React.useMemo(() =&gt; (</span><br><span class="line">    &lt;PropsContext.Provider value=&#123;props&#125;&gt;</span><br><span class="line">      &lt;App /&gt;</span><br><span class="line">    &lt;/PropsContext.Provider&gt;</span><br><span class="line">  ), [props])</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="结合项目数据流"><a href="#结合项目数据流" class="headerlink" title="结合项目数据流"></a>结合项目数据流</h4><p>参考 <a href="https://github.com/reduxjs/react-redux/blob/master/docs/api/hooks.md" target="_blank" rel="noopener">react-redux hooks</a>。</p>
+<h3 id="debounce-优化"><a href="#debounce-优化" class="headerlink" title="debounce 优化"></a>debounce 优化</h3><p>比如当输入框频繁输入时，为了保证页面流畅，我们会选择在 <code>onChange</code> 时进行 <code>debounce</code> 。然而在 Function Component 领域中，我们有更优雅的方式实现。</p>
+<blockquote>
+<p>其实在 Input 组件 <code>onChange</code>  使用 <code>debounce</code> 有一个问题，就是当 Input 组件 <strong>受控</strong> 时， <code>debounce</code> 的值不能及时回填，导致甚至无法输入的问题。<br>我们站在 Function Component 思维模式下思考这个问题：</p>
+</blockquote>
+<ol>
+<li>React <a href="https://github.com/dt-fe/weekly/blob/v2/099.%E7%B2%BE%E8%AF%BB%E3%80%8AScheduling%20in%20React%E3%80%8B.md" target="_blank" rel="noopener">scheduling</a> 通过智能调度系统优化渲染优先级，我们其实不用担心频繁变更状态会导致性能问题。</li>
+<li>如果联动一个文本还觉得慢吗？ <code>onChange</code> 本不慢，大部分使用值的组件也不慢，没有必要从 <code>onChange</code> 源头开始就 <code>debounce</code> 。</li>
+<li>找到渲染性能最慢的组件（比如 iframe 组件），<strong>对一些频繁导致其渲染的入参进行 <code>useDebounce</code></strong> 。</li>
+</ol>
+<p>下面是一个性能很差的组件，引用了变化频繁的 <code>text</code> （这个 <code>text</code> 可能是 <code>onChange</code> 触发改变的），我们利用 <code>useDebounce</code> 将其变更的频率慢下来即可：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App: React.FC = <span class="function">(<span class="params">&#123; text &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 无论 text 变化多快，textDebounce 最多 1 秒修改一次</span></span><br><span class="line">  <span class="keyword">const</span> textDebounce = useDebounce(text, <span class="number">1000</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> useMemo(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 使用 textDebounce，但渲染速度很慢的一堆代码</span></span><br><span class="line">  &#125;, [textDebounce])</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>textDebounce</code> 替代 <code>text</code> 可以将渲染频率控制在我们指定的范围内。</p>
+<h3 id="useEffect-注意事项"><a href="#useEffect-注意事项" class="headerlink" title="useEffect 注意事项"></a>useEffect 注意事项</h3><p>事实上，<code>useEffect</code> 是最为怪异的 Hook，也是最难使用的 Hook。比如下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(() =&gt; &#123;</span><br><span class="line">  props.onChange(props.id)</span><br><span class="line">&#125;, [props.onChange, props.id])</span><br></pre></td></tr></table></figure>
+<p>如果 <code>id</code> 变化，则调用 <code>onChange</code>。但如果上层代码并没有对 <code>onChange</code> 进行合理的封装，导致每次刷新引用都会变动，则会产生严重后果。我们假设父级代码是这么写的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class App &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;Child id=&#123;this.state.id&#125; onChange=&#123;id =&gt; this.setState(&#123; id &#125;)&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样会导致死循环。虽然看上去 <code>&lt;App&gt;</code> 只是将更新 id 的时机交给了子元素 <code>&lt;Child&gt;</code>，但由于 <code>onChange</code> 函数在每次渲染时都会重新生成，因此引用总是在变化，就会出现一个无限死循环：</p>
+<p>新 <code>onChange</code> -&gt; <code>useEffect</code> 依赖更新 -&gt; <code>props.onChange</code> -&gt; 父级重渲染 -&gt; 新 <code>onChange</code>…</p>
+<p>想要阻止这个循环的发生，只要改为 <code>onChange={this.handleChange}</code> 即可，<strong><code>useEffect</code> 对外部依赖苛刻的要求，只有在整体项目都注意保持正确的引用时才能优雅生效。</strong></p>
+<p>然而被调用处代码怎么写并不受我们控制，这就导致了不规范的父元素可能导致 React Hooks 产生死循环。</p>
+<p>因此在使用 <code>useEffect</code> 时要注意调试上下文，注意父级传递的参数引用是否正确，如果引用传递不正确，有两种做法：</p>
+<ol>
+<li>使用 <a href="https://github.com/streamich/react-use/blob/master/docs/useDeepCompareEffect.md" target="_blank" rel="noopener">useDeepCompareEffect</a> 对依赖进行深比较。</li>
+<li>使用 <code>useCurrentValue</code> 对引用总是变化的 props 进行包装：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function useCurrentValue&lt;T&gt;(value: T): React.RefObject&lt;T&gt; &#123;</span><br><span class="line">  const ref = React.useRef(null);</span><br><span class="line">  ref.current = value;</span><br><span class="line">  return ref;</span><br><span class="line">&#125;</span><br><span class="line">const App: React.FC = (&#123; onChange &#125;) =&gt; &#123;</span><br><span class="line">  const onChangeCurrent = useCurrentValue(onChange)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>onChangeCurrent</code> 的引用保持不变，但每次都会指向最新的 <code>props.onChange</code>，从而可以规避这个问题。</p>
 
       
 
@@ -282,11 +287,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">debug</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -342,7 +343,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/18/js-debug/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/04/react-hooks-practice/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,18 +357,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/06/js-outils/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          打造自己的 JavaScript 武器库
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/15/js-jq/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我仍然爱jQuery - 你也应该这样做</div>
+    <a href="/2019/05/01/webpack-gzip/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目部署的最佳实践</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -394,7 +386,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-‘debugger-’"><span class="toc-number">1.</span> <span class="toc-text">1. ‘debugger;’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-把-objects-输出成表格"><span class="toc-number">2.</span> <span class="toc-text">2. 把 objects 输出成表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-试遍所有的尺寸"><span class="toc-number">3.</span> <span class="toc-text">3. 试遍所有的尺寸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何快速定位-DOM-元素"><span class="toc-number">4.</span> <span class="toc-text">4. 如何快速定位 DOM 元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用-console-time-和-console-timeEnd-测试循环耗时"><span class="toc-number">5.</span> <span class="toc-text">5. 用 console.time() 和 console.timeEnd() 测试循环耗时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-获取函数的堆栈轨迹信息"><span class="toc-number">6.</span> <span class="toc-text">6.获取函数的堆栈轨迹信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-格式化代码使调试-JavaScript-变得容易"><span class="toc-number">7.</span> <span class="toc-text">7. 格式化代码使调试 JavaScript 变得容易</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-快速找到调试函数"><span class="toc-number">8.</span> <span class="toc-text">8. 快速找到调试函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-屏蔽不相关代码"><span class="toc-number">9.</span> <span class="toc-text">9.  屏蔽不相关代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-在复杂的调试过程中寻找重点"><span class="toc-number">10.</span> <span class="toc-text">10. 在复杂的调试过程中寻找重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-查看具体的函数调用和它的参数"><span class="toc-number">11.</span> <span class="toc-text">11. 查看具体的函数调用和它的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-在控制台中快速访问元素"><span class="toc-number">12.</span> <span class="toc-text">12. 在控制台中快速访问元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Postman-很棒（但-Firefox-更快）"><span class="toc-number">13.</span> <span class="toc-text">13. Postman 很棒（但 Firefox 更快）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-节点变化时中断"><span class="toc-number">14.</span> <span class="toc-text">14. 节点变化时中断</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境要求"><span class="toc-number">1.</span> <span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件定义"><span class="toc-number">2.</span> <span class="toc-text">组件定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAQ"><span class="toc-number">2.1.</span> <span class="toc-text">FAQ</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部状态"><span class="toc-number">3.</span> <span class="toc-text">局部状态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#useState"><span class="toc-number">3.1.</span> <span class="toc-text">useState</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#useRef"><span class="toc-number">3.2.</span> <span class="toc-text">useRef</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#useReducer"><span class="toc-number">3.3.</span> <span class="toc-text">useReducer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FAQ-1"><span class="toc-number">3.4.</span> <span class="toc-text">FAQ</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发请求"><span class="toc-number">5.</span> <span class="toc-text">发请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#操作型发请求"><span class="toc-number">5.1.</span> <span class="toc-text">操作型发请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染型发请求"><span class="toc-number">5.2.</span> <span class="toc-text">渲染型发请求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件间通信"><span class="toc-number">6.</span> <span class="toc-text">组件间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义组件内共享状态-store-ts"><span class="toc-number">6.1.</span> <span class="toc-text">定义组件内共享状态 - store.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#根组件注入共享状态-main-ts"><span class="toc-number">6.2.</span> <span class="toc-text">根组件注入共享状态 - main.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#任意子组件访问-修改共享状态-child-ts"><span class="toc-number">6.3.</span> <span class="toc-text">任意子组件访问/修改共享状态 - child.ts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结合项目数据流"><span class="toc-number">6.4.</span> <span class="toc-text">结合项目数据流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#debounce-优化"><span class="toc-number">7.</span> <span class="toc-text">debounce 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect-注意事项"><span class="toc-number">8.</span> <span class="toc-text">useEffect 注意事项</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -418,7 +410,7 @@
 <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
 <script src="https://billts.site/js/gitment.js"></script>
 <script>
-var Gitment_id =  "http://yoursite.com/2017/11/18/js-debug/";
+var Gitment_id =  "http://yoursite.com/2019/10/04/react-hooks-practice/";
 if(Gitment_id.length > 48){
 	Gitment_id = Gitment_id.slice(-48);
 }
